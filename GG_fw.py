@@ -4,6 +4,10 @@ import busio
 import time
 from microcontroller import delay_us
 
+# --- Configuration Constants ---
+# Adjustable polling interval (seconds) for motion_ready checks
+POLL_INTERVAL = 0.001  # e.g. 0.001 = 1ms
+
 # PAW3395 register constants
 REG_PRODUCT_ID     = 0x00
 REG_MOTION         = 0x02
@@ -76,7 +80,7 @@ def initialize_sensor():
             break
         if time.monotonic() - start > 0.060:
             raise RuntimeError("Sensor init timeout")
-        time.sleep(0.001)
+        time.sleep(POLL_INTERVAL)
 
     # Verify Product ID
     pid = spi_read(REG_PRODUCT_ID)
@@ -127,7 +131,7 @@ def recover():
 
 # Optional interrupt-driven handler
 # def irq_handler(pin):
-#     dx, dy = read_motion()\#     process_motion(dx, dy)
+#     dx, dy = read_motion()  # process_motion(dx, dy)
 #
 # irq_pin.edge = digitalio.Edge.RISING
 # irq_pin.callback = irq_handler
@@ -141,7 +145,7 @@ while True:
         if motion_ready():
             dx, dy = read_motion()
             print(f"ΔX: {dx}, ΔY: {dy}")
-        time.sleep(0.001)
+        time.sleep(POLL_INTERVAL)
     except Exception as e:
         print(f"Error: {e}")
         recover()
