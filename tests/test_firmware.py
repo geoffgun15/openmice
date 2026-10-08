@@ -103,13 +103,13 @@ class FirmwareTests(unittest.TestCase):
                 validate({'dpi':800,'bindings':[binding]+defaults()['bindings'][1:]})
 
     def test_persistence_and_corruption_fallback(self):
-        nvm=bytearray(2048)
+        nvm=bytearray(12288)
         store=Store(nvm)
         self.assertEqual(store.load(),defaults())
         store.save({'dpi':1600,'bindings':defaults()['bindings']})
         store.save({'dpi':3200,'bindings':defaults()['bindings']})
         self.assertEqual(Store(nvm).load()['dpi'],3200)
-        nvm[512+20]^=0xff
+        nvm[4096+20]^=0xff
         self.assertEqual(Store(nvm).load()['dpi'],1600)
 
     def test_interrupted_save_preserves_last_good_slot(self):
@@ -120,7 +120,7 @@ class FirmwareTests(unittest.TestCase):
                 if self.remaining==0:
                     raise OSError('power cut')
                 super().__setitem__(key,value)
-        nvm=FailingNVM(2048)
+        nvm=FailingNVM(12288)
         store=Store(nvm)
         store.load()
         store.save(defaults())
@@ -128,6 +128,32 @@ class FirmwareTests(unittest.TestCase):
         with self.assertRaises(OSError):
             store.save({'dpi':1600,'bindings':defaults()['bindings']})
         self.assertEqual(Store(nvm).load()['dpi'],800)
+
+    def test_power_cut_after_erase_preserves_other_physical_page(self):
+        class FlashPageNVM(bytearray):
+            writes=0
+            cut_at=None
+            def __setitem__(self,key,value):
+                begin,end=key.start,key.stop
+                page=begin//4096*4096
+                self.assert_same_page=page==(end-1)//4096*4096
+                if not self.assert_same_page:
+                    raise AssertionError('Write crosses physical erase pages')
+                image=bytearray(self[page:page+4096])
+                image[begin-page:end-page]=value
+                super().__setitem__(slice(page,page+4096),b'\xff'*4096)
+                self.writes+=1
+                if self.writes==self.cut_at:
+                    raise OSError('Power cut immediately after physical page erase')
+                super().__setitem__(slice(page,page+4096),image)
+        for phase in (1,2,3):
+            nvm=FlashPageNVM(12288)
+            store=Store(nvm);store.load();store.save(defaults())
+            store.save({'dpi':1600,'bindings':defaults()['bindings']})
+            nvm.cut_at=nvm.writes+phase
+            with self.assertRaises(OSError):
+                store.save({'dpi':3200,'bindings':defaults()['bindings']})
+            self.assertEqual(Store(nvm).load()['dpi'],1600)
 
     def test_protocol_framing_and_overflow(self):
         lines=Lines(12)
@@ -154,7 +180,7 @@ class FirmwareTests(unittest.TestCase):
             dpi=0
             def set_dpi(self,dpi):self.dpi=dpi
         sensor=Sensor()
-        api=ConfigAPI(sensor,Store(bytearray(2048)))
+        api=ConfigAPI(sensor,Store(bytearray(12288)))
         reply=api.handle({'id':3,'cmd':'set','config':{'dpi':801,'bindings':defaults()['bindings']}})
         self.assertFalse(reply['ok'])
         self.assertEqual(reply['id'],3)

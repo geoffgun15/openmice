@@ -17,7 +17,7 @@ pair_button.switch_to_input(pull=digitalio.Pull.UP)
 cdc = usb_cdc.data
 cdc.timeout = 0
 cdc.write_timeout = 0
-peer_offset = 1024
+peer_offset = 8192 # dedicated third erase page, separate from config slots
 raw_peer = bytes(microcontroller.nvm[peer_offset:peer_offset+10])
 peer = raw_peer[4:] if raw_peer[:4] == b"OMP1" else None
 connection = uart = None

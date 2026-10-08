@@ -10,7 +10,7 @@ for role in ('mouse','receiver'):
     for source in (root/'firmware/common').glob('*.py'):
         shutil.copy2(source,destination/source.name)
     shutil.copy2(root/'firmware'/role/'code.py',destination/'code.py')
-    (destination/'INSTALL.txt').write_text('Install the custom OpenMice CircuitPython runtime first.\nCopy these files to CIRCUITPY, plus adafruit_ble and its bundle dependencies in lib/.\nPower-cycle after changing boot.py.\nSee docs/SETUP.md. Native runtime and radio behavior are not hardware-verified.\n')
+    (destination/'INSTALL.txt').write_text('Install output/native/openmice-factory.hex over SWD for a blank board.\nFor runtime updates only, use output/native/openmice-runtime.uf2.\nCopy these files to CIRCUITPY. BLE dependencies are frozen in this runtime.\nPower-cycle after changing boot.py.\nSee docs/SETUP.md and docs/FIRST_ARTICLE.md. Physical tests are NOT RUN.\n')
     with zipfile.ZipFile(root/'output'/('openmice-'+role+'.zip'),'w',zipfile.ZIP_DEFLATED) as archive:
         for file in sorted(destination.glob('*')):
             if file.is_file():

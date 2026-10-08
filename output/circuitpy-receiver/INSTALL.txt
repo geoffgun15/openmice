@@ -1,4 +1,5 @@
-Install the custom OpenMice CircuitPython runtime first.
-Copy these files to CIRCUITPY, plus adafruit_ble and its bundle dependencies in lib/.
+Install output/native/openmice-factory.hex over SWD for a blank board.
+For runtime updates only, use output/native/openmice-runtime.uf2.
+Copy these files to CIRCUITPY. BLE dependencies are frozen in this runtime.
 Power-cycle after changing boot.py.
-See docs/SETUP.md. Native runtime and radio behavior are not hardware-verified.
+See docs/SETUP.md and docs/FIRST_ARTICLE.md. Physical tests are NOT RUN.

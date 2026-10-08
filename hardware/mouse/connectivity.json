@@ -2,7 +2,7 @@
   "name": "mouse",
   "width_mm": 64,
   "height_mm": 94,
-  "status": "unrouted placement draft",
+  "status": "routed A1 prototype; physical tests NOT RUN",
   "parts": [
     {
       "ref": "U1",
@@ -13,247 +13,308 @@
       "pins": {
         "1": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "2": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "3": {
           "name": "P1.10",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "4": {
           "name": "P1.11",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "5": {
           "name": "P1.12",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "6": {
           "name": "P1.13",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "7": {
           "name": "P1.14",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "8": {
           "name": "P1.15",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "9": {
           "name": "P0.03/AIN1",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "10": {
           "name": "P0.29/AIN5",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "11": {
           "name": "P0.02/AIN0",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "12": {
           "name": "P0.31/AIN7",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "13": {
           "name": "P0.28/AIN4",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "14": {
           "name": "P0.30/AIN6",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "15": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "16": {
           "name": "P0.27",
-          "net": "PAIR"
+          "net": "PAIR",
+          "type": "bidirectional"
         },
         "17": {
           "name": "XL1/P0.00",
-          "net": "LF_XL1"
+          "net": "LF_XL1",
+          "type": "bidirectional"
         },
         "18": {
           "name": "XL2/P0.01",
-          "net": "LF_XL2"
+          "net": "LF_XL2",
+          "type": "bidirectional"
         },
         "19": {
           "name": "P0.26",
-          "net": "ENCODER_B"
+          "net": "ENCODER_B",
+          "type": "bidirectional"
         },
         "20": {
           "name": "P0.04/AIN2",
-          "net": "BATTERY_ADC"
+          "net": "BATTERY_ADC",
+          "type": "bidirectional"
         },
         "21": {
           "name": "P0.05/AIN3",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "22": {
           "name": "P0.06",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "23": {
           "name": "TRACECLK/P0.07",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "24": {
           "name": "P0.08",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "25": {
           "name": "P1.08",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "26": {
           "name": "TRACEDATA3/P1.09",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "27": {
           "name": "TRACEDATA2/P0.11",
-          "net": "SENSOR_IRQ"
+          "net": "SENSOR_IRQ",
+          "type": "bidirectional"
         },
         "28": {
           "name": "VDD",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "power_in"
         },
         "29": {
           "name": "TRACEDATA1/P0.12",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "30": {
           "name": "VDDH",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "power_in"
         },
         "31": {
           "name": "DCCH",
-          "net": null
+          "net": null,
+          "type": "power_out"
         },
         "32": {
           "name": "VBUS",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "power_in"
         },
         "33": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "34": {
           "name": "D-",
-          "net": "USB_DM"
+          "net": "USB_DM",
+          "type": "bidirectional"
         },
         "35": {
           "name": "D+",
-          "net": "USB_DP"
+          "net": "USB_DP",
+          "type": "bidirectional"
         },
         "36": {
           "name": "P0.14",
-          "net": "SPI_SCLK"
+          "net": "SPI_SCLK",
+          "type": "bidirectional"
         },
         "37": {
           "name": "P0.13",
-          "net": "SPI_MOSI"
+          "net": "SPI_MOSI",
+          "type": "bidirectional"
         },
         "38": {
           "name": "P0.16",
-          "net": "SENSOR_NCS"
+          "net": "SENSOR_NCS",
+          "type": "bidirectional"
         },
         "39": {
           "name": "P0.15",
-          "net": "SPI_MISO"
+          "net": "SPI_MISO",
+          "type": "bidirectional"
         },
         "40": {
           "name": "~RESET~/P0.18",
-          "net": "MCU_RESET"
+          "net": "MCU_RESET",
+          "type": "bidirectional"
         },
         "41": {
           "name": "P0.17",
-          "net": "SENSOR_RESET"
+          "net": "SENSOR_RESET",
+          "type": "bidirectional"
         },
         "42": {
           "name": "P0.19",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "43": {
           "name": "P0.21",
-          "net": "BUTTON_RIGHT"
+          "net": "BUTTON_RIGHT",
+          "type": "bidirectional"
         },
         "44": {
           "name": "P0.20",
-          "net": "BUTTON_LEFT"
+          "net": "BUTTON_LEFT",
+          "type": "bidirectional"
         },
         "45": {
           "name": "P0.23",
-          "net": "BUTTON_MIDDLE"
+          "net": "BUTTON_MIDDLE",
+          "type": "bidirectional"
         },
         "46": {
           "name": "P0.22",
-          "net": "BUTTON_BACK"
+          "net": "BUTTON_BACK",
+          "type": "bidirectional"
         },
         "47": {
           "name": "TRACEDATA0/P1.00",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "48": {
           "name": "P0.24",
-          "net": "BUTTON_FORWARD"
+          "net": "BUTTON_FORWARD",
+          "type": "bidirectional"
         },
         "49": {
           "name": "P0.25",
-          "net": "ENCODER_A"
+          "net": "ENCODER_A",
+          "type": "bidirectional"
         },
         "50": {
           "name": "P1.02",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "51": {
           "name": "SWDIO",
-          "net": "SWDIO"
+          "net": "SWDIO",
+          "type": "bidirectional"
         },
         "52": {
           "name": "P0.09/NFC1",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "53": {
           "name": "SWDCLK",
-          "net": "SWDCLK"
+          "net": "SWDCLK",
+          "type": "input"
         },
         "54": {
           "name": "P0.10/NFC2",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "55": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "56": {
           "name": "P1.04",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "57": {
           "name": "P1.06",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "58": {
           "name": "P1.07",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "59": {
           "name": "P1.05",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "60": {
           "name": "P1.03",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         },
         "61": {
           "name": "P1.01",
-          "net": null
+          "net": null,
+          "type": "bidirectional"
         }
       },
       "group": "controller",
@@ -266,129 +327,152 @@
       "x": 32,
       "y": 3.6,
       "pins": {
-        "": {
-          "name": "",
-          "net": null
-        },
         "A1": {
           "name": "A1",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "A12": {
           "name": "A12",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "A4": {
           "name": "A4",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "A5": {
           "name": "A5",
-          "net": "CC1"
+          "net": "CC1",
+          "type": "passive"
         },
         "A6": {
           "name": "A6",
-          "net": "USB_DP"
+          "net": "USB_DP",
+          "type": "passive"
         },
         "A7": {
           "name": "A7",
-          "net": "USB_DM"
+          "net": "USB_DM",
+          "type": "passive"
         },
         "A8": {
           "name": "A8",
-          "net": null
+          "net": null,
+          "type": "passive"
         },
         "A9": {
           "name": "A9",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "B1": {
           "name": "B1",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "B12": {
           "name": "B12",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "B4": {
           "name": "B4",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "B5": {
           "name": "B5",
-          "net": "CC2"
+          "net": "CC2",
+          "type": "passive"
         },
         "B6": {
           "name": "B6",
-          "net": "USB_DP"
+          "net": "USB_DP",
+          "type": "passive"
         },
         "B7": {
           "name": "B7",
-          "net": "USB_DM"
+          "net": "USB_DM",
+          "type": "passive"
         },
         "B8": {
           "name": "B8",
-          "net": null
+          "net": null,
+          "type": "passive"
         },
         "B9": {
           "name": "B9",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "S1": {
           "name": "S1",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
-      "group": "USB"
+      "group": "USB",
+      "rotation": 180
     },
     {
       "ref": "U2",
       "value": "USBLC6-2SC6",
       "footprint": "SOT-23-6",
-      "x": 38,
-      "y": 7.6,
+      "x": 32,
+      "y": 11.5,
       "pins": {
         "1": {
           "name": "1",
-          "net": "USB_DP"
+          "net": "USB_DP",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": "USB_DM"
+          "net": "USB_DM",
+          "type": "passive"
         },
         "4": {
           "name": "4",
-          "net": "USB_DM"
+          "net": "USB_DM",
+          "type": "passive"
         },
         "5": {
           "name": "5",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "6": {
           "name": "6",
-          "net": "USB_DP"
+          "net": "USB_DP",
+          "type": "passive"
         }
       },
-      "group": "USB"
+      "group": "USB",
+      "rotation": 90
     },
     {
       "ref": "R1",
       "value": "5.1k 1%",
       "footprint": "R_0603_1608Metric",
-      "x": 26,
-      "y": 7.6,
+      "x": 25,
+      "y": 9,
       "pins": {
         "1": {
           "name": "1",
-          "net": "CC1"
+          "net": "CC1",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "USB"
@@ -397,16 +481,18 @@
       "ref": "R2",
       "value": "5.1k 1%",
       "footprint": "R_0603_1608Metric",
-      "x": 29,
-      "y": 7.6,
+      "x": 39,
+      "y": 9,
       "pins": {
         "1": {
           "name": "1",
-          "net": "CC2"
+          "net": "CC2",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "USB"
@@ -420,23 +506,28 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "SYSTEM_ON"
+          "net": "SYSTEM_ON",
+          "type": "power_in"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "3": {
           "name": "3",
-          "net": "SYSTEM_ON"
+          "net": "SYSTEM_ON",
+          "type": "input"
         },
         "4": {
           "name": "4",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         },
         "5": {
           "name": "5",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "power_out"
         }
       },
       "group": "power"
@@ -450,11 +541,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "SYSTEM_ON"
+          "net": "SYSTEM_ON",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "power"
@@ -468,11 +561,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "power"
@@ -486,11 +581,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -504,11 +601,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -517,16 +616,18 @@
       "ref": "C5",
       "value": "1uF 10V X7R",
       "footprint": "C_0603_1608Metric",
-      "x": 35,
-      "y": 10.6,
+      "x": 38,
+      "y": 11,
       "pins": {
         "1": {
           "name": "1",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "USB"
@@ -540,11 +641,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "LF_XL1"
+          "net": "LF_XL1",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "LF_XL2"
+          "net": "LF_XL2",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -558,11 +661,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "LF_XL1"
+          "net": "LF_XL1",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -576,11 +681,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "LF_XL2"
+          "net": "LF_XL2",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -594,23 +701,28 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "SWDIO"
+          "net": "SWDIO",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": "SWDCLK"
+          "net": "SWDCLK",
+          "type": "passive"
         },
         "4": {
           "name": "4",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "5": {
           "name": "5",
-          "net": "MCU_RESET"
+          "net": "MCU_RESET",
+          "type": "passive"
         }
       },
       "group": "debug"
@@ -624,11 +736,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "PAIR"
+          "net": "PAIR",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -642,11 +756,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "MCU_RESET"
+          "net": "MCU_RESET",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -655,16 +771,18 @@
       "ref": "R3",
       "value": "10k",
       "footprint": "R_0603_1608Metric",
-      "x": 14,
+      "x": 17,
       "y": 84,
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "MCU_RESET"
+          "net": "MCU_RESET",
+          "type": "passive"
         }
       },
       "group": "controller"
@@ -678,67 +796,83 @@
       "pins": {
         "1": {
           "name": "NC",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         },
         "2": {
           "name": "NC",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         },
         "3": {
           "name": "GND",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "4": {
           "name": "VDD",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "power_in"
         },
         "5": {
           "name": "VDDREG",
-          "net": "SENSOR_VDDREG"
+          "net": "SENSOR_VDDREG",
+          "type": "power_out"
         },
         "6": {
           "name": "NC",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         },
         "7": {
           "name": "VDDIO",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "power_in"
         },
         "8": {
           "name": "GNDIO",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "9": {
           "name": "MOTION",
-          "net": "SENSOR_IRQ"
+          "net": "SENSOR_IRQ",
+          "type": "output"
         },
         "10": {
           "name": "SCLK",
-          "net": "SPI_SCLK"
+          "net": "SPI_SCLK",
+          "type": "input"
         },
         "11": {
           "name": "MOSI",
-          "net": "SPI_MOSI"
+          "net": "SPI_MOSI",
+          "type": "input"
         },
         "12": {
           "name": "MISO",
-          "net": "SPI_MISO"
+          "net": "SPI_MISO",
+          "type": "output"
         },
         "13": {
           "name": "NCS",
-          "net": "SENSOR_NCS"
+          "net": "SENSOR_NCS",
+          "type": "input"
         },
         "14": {
           "name": "NRESET",
-          "net": "SENSOR_RESET"
+          "net": "SENSOR_RESET",
+          "type": "input"
         },
         "15": {
           "name": "LED_P",
-          "net": "SENSOR_LED_P"
+          "net": "SENSOR_LED_P",
+          "type": "passive"
         },
         "16": {
           "name": "NC",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         }
       },
       "group": "sensor"
@@ -752,23 +886,28 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "power_in"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "3": {
           "name": "3",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "input"
         },
         "4": {
           "name": "4",
-          "net": null
+          "net": null,
+          "type": "no_connect"
         },
         "5": {
           "name": "5",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "power_out"
         }
       },
       "group": "sensor"
@@ -782,11 +921,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -800,11 +941,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -818,11 +961,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -836,11 +981,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "SENSOR_VDDREG"
+          "net": "SENSOR_VDDREG",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -854,11 +1001,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "SENSOR_VDDREG"
+          "net": "SENSOR_VDDREG",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -872,11 +1021,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -890,11 +1041,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -908,11 +1061,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -921,16 +1076,18 @@
       "ref": "R4",
       "value": "5.6R 1%",
       "footprint": "R_0603_1608Metric",
-      "x": 40,
-      "y": 52,
+      "x": 38,
+      "y": 56,
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_1V9"
+          "net": "VDD_1V9",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "SENSOR_LED_P"
+          "net": "SENSOR_LED_P",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -944,11 +1101,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "SPI_MISO"
+          "net": "SPI_MISO",
+          "type": "passive"
         }
       },
       "group": "sensor"
@@ -956,81 +1115,94 @@
     {
       "ref": "U6",
       "value": "BQ24072RGTR",
-      "footprint": "VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm",
+      "footprint": "BQ24072_RGT0016C",
       "x": 16,
       "y": 14,
       "pins": {
         "1": {
           "name": "TS",
-          "net": "BATTERY_NTC"
+          "net": "BATTERY_NTC",
+          "type": "passive"
         },
         "2": {
           "name": "BAT",
-          "net": "BATTERY"
+          "net": "BATTERY",
+          "type": "passive"
         },
         "3": {
           "name": "BAT",
-          "net": "BATTERY"
+          "net": "BATTERY",
+          "type": "passive"
         },
         "4": {
           "name": "CE",
-          "net": "GND"
+          "net": "GND",
+          "type": "input"
         },
         "5": {
           "name": "EN2",
-          "net": "GND"
+          "net": "GND",
+          "type": "input"
         },
         "6": {
           "name": "EN1",
-          "net": "GND"
+          "net": "GND",
+          "type": "input"
         },
         "7": {
           "name": "PGOOD",
-          "net": "POWER_GOOD"
+          "net": "POWER_GOOD",
+          "type": "open_collector"
         },
         "8": {
           "name": "VSS",
-          "net": "GND"
+          "net": "GND",
+          "type": "power_in"
         },
         "9": {
           "name": "CHG",
-          "net": "CHARGING"
+          "net": "CHARGING",
+          "type": "open_collector"
         },
         "10": {
           "name": "OUT",
-          "net": "SYSTEM"
+          "net": "SYSTEM",
+          "type": "power_out"
         },
         "11": {
           "name": "OUT",
-          "net": "SYSTEM"
+          "net": "SYSTEM",
+          "type": "passive"
         },
         "12": {
           "name": "ILIM",
-          "net": "CHARGER_ILIM"
+          "net": "CHARGER_ILIM",
+          "type": "passive"
         },
         "13": {
           "name": "IN",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "power_in"
         },
         "14": {
           "name": "TMR",
-          "net": "CHARGER_TMR"
+          "net": "CHARGER_TMR",
+          "type": "passive"
         },
         "15": {
           "name": "TD",
-          "net": "GND"
+          "net": "GND",
+          "type": "input"
         },
         "16": {
           "name": "ISET",
-          "net": "CHARGER_ISET"
+          "net": "CHARGER_ISET",
+          "type": "passive"
         },
         "17": {
           "name": "EP",
-          "net": "GND"
-        },
-        "": {
-          "name": "",
-          "net": null
+          "net": "GND",
+          "type": "power_in"
         }
       },
       "group": "battery"
@@ -1040,19 +1212,22 @@
       "value": "Protected 1S 300mAh + 10k NTC (BAT/GND/NTC)",
       "footprint": "JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
       "x": 6,
-      "y": 53,
+      "y": 50,
       "pins": {
         "1": {
           "name": "1",
-          "net": "BATTERY"
+          "net": "BATTERY",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": "BATTERY_NTC"
+          "net": "BATTERY_NTC",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1066,11 +1241,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "CHARGER_ISET"
+          "net": "CHARGER_ISET",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1084,11 +1261,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "CHARGER_ILIM"
+          "net": "CHARGER_ILIM",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1102,11 +1281,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "CHARGER_TMR"
+          "net": "CHARGER_TMR",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1120,11 +1301,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "USB_VBUS"
+          "net": "USB_VBUS",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1133,16 +1316,18 @@
       "ref": "C17",
       "value": "10uF 6.3V X5R",
       "footprint": "C_0805_2012Metric",
-      "x": 20,
-      "y": 17,
+      "x": 22,
+      "y": 15,
       "pins": {
         "1": {
           "name": "1",
-          "net": "SYSTEM"
+          "net": "SYSTEM",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1156,11 +1341,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "BATTERY"
+          "net": "BATTERY",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1170,23 +1357,22 @@
       "value": "Power PCM12",
       "footprint": "SW_SPDT_PCM12",
       "x": 7,
-      "y": 63,
+      "y": 56,
       "pins": {
         "1": {
           "name": "1",
-          "net": "SYSTEM"
+          "net": "SYSTEM",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "SYSTEM_ON"
+          "net": "SYSTEM_ON",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": null
-        },
-        "": {
-          "name": "",
-          "net": null
+          "net": null,
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1200,11 +1386,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "BATTERY"
+          "net": "BATTERY",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "BATTERY_ADC"
+          "net": "BATTERY_ADC",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1218,11 +1406,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "BATTERY_ADC"
+          "net": "BATTERY_ADC",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1236,11 +1426,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "BATTERY_ADC"
+          "net": "BATTERY_ADC",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1254,11 +1446,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "POWER_GOOD"
+          "net": "POWER_GOOD",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1272,11 +1466,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "VDD_3V0"
+          "net": "VDD_3V0",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "CHARGING"
+          "net": "CHARGING",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1290,15 +1486,18 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "POWER_GOOD"
+          "net": "POWER_GOOD",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": "CHARGING"
+          "net": "CHARGING",
+          "type": "passive"
         }
       },
       "group": "battery"
@@ -1312,11 +1511,13 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "BUTTON_LEFT"
+          "net": "BUTTON_LEFT",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -1325,16 +1526,18 @@
       "ref": "J6",
       "value": "BUTTON_RIGHT contact",
       "footprint": "PinHeader_1x02_P2.54mm_Vertical",
-      "x": 44,
-      "y": 25,
+      "x": 45,
+      "y": 23,
       "pins": {
         "1": {
           "name": "1",
-          "net": "BUTTON_RIGHT"
+          "net": "BUTTON_RIGHT",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -1343,16 +1546,18 @@
       "ref": "J7",
       "value": "BUTTON_MIDDLE contact",
       "footprint": "PinHeader_1x02_P2.54mm_Vertical",
-      "x": 30,
-      "y": 20,
+      "x": 34,
+      "y": 22,
       "pins": {
         "1": {
           "name": "1",
-          "net": "BUTTON_MIDDLE"
+          "net": "BUTTON_MIDDLE",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -1362,15 +1567,17 @@
       "value": "BUTTON_BACK contact",
       "footprint": "PinHeader_1x02_P2.54mm_Vertical",
       "x": 5,
-      "y": 39,
+      "y": 37,
       "pins": {
         "1": {
           "name": "1",
-          "net": "BUTTON_BACK"
+          "net": "BUTTON_BACK",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -1379,16 +1586,18 @@
       "ref": "J9",
       "value": "BUTTON_FORWARD contact",
       "footprint": "PinHeader_1x02_P2.54mm_Vertical",
-      "x": 5,
-      "y": 44,
+      "x": 10,
+      "y": 43,
       "pins": {
         "1": {
           "name": "1",
-          "net": "BUTTON_FORWARD"
+          "net": "BUTTON_FORWARD",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         }
       },
       "group": "controls"
@@ -1402,15 +1611,18 @@
       "pins": {
         "1": {
           "name": "1",
-          "net": "ENCODER_A"
+          "net": "ENCODER_A",
+          "type": "passive"
         },
         "2": {
           "name": "2",
-          "net": "GND"
+          "net": "GND",
+          "type": "passive"
         },
         "3": {
           "name": "3",
-          "net": "ENCODER_B"
+          "net": "ENCODER_B",
+          "type": "passive"
         }
       },
       "group": "controls"

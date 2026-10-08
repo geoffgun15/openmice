@@ -4,8 +4,13 @@ SPI mode 3. All transactions release CS and the bus, including failures.
 Initialization values are in init_sequence.py, checked against section 6.2.
 """
 import time
+import sys
 from microcontroller import delay_us
 from init_sequence import INIT_SEQUENCE
+try:
+    from openmice_native import poll_ready as native_poll_ready
+except ImportError:
+    native_poll_ready = None
 
 def signed16(low, high):
     value = low | high << 8
@@ -70,16 +75,21 @@ class PAW3395:
         for address, value in INIT_SEQUENCE:
             self.write(address, value)
         delay_us(1000)
-        ready = False
-        for _ in range(60):
-            started = time.monotonic_ns()
-            if self.read(0x6c) == 0x80:
-                ready = True
-                break
-            # Best effort 1ms cadence; verify ±1% requirement on a logic analyser.
-            elapsed = (time.monotonic_ns()-started)//1000
-            if elapsed < 1000:
-                delay_us(1000-elapsed)
+        if native_poll_ready is not None:
+            ready = native_poll_ready(self.spi,self.cs)
+        else:
+            if sys.implementation.name == 'circuitpython':
+                raise RuntimeError('Install the OpenMice native runtime')
+            # Host-test fallback only; physical devices require native deadlines.
+            ready = False
+            for _ in range(60):
+                started = time.monotonic_ns()
+                if self.read(0x6c) == 0x80:
+                    ready = True
+                    break
+                elapsed = (time.monotonic_ns()-started)//1000
+                if elapsed < 1000:
+                    delay_us(1000-elapsed)
         if not ready:
             self.write(0x7f, 0x14)
             self.write(0x6c, 0)

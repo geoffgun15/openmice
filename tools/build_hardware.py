@@ -1,7 +1,7 @@
-"""Generate editable KiCad schematic/placement drafts from one connectivity model.
+"""Generate editable KiCad schematic/starting placements from one model.
 
-No fabrication exports: routing, ERC/DRC, RF and mechanics still require KiCad review.
-Uses official KiCad 5 footprints (KiCad can migrate the PCB on first open).
+This step overwrites routed boards. Prepare/import/finalize routes and run the
+native export checks afterward; see docs/BUILD.md. Uses vendored KiCad footprints.
 """
 import csv
 import json
@@ -54,7 +54,7 @@ def atom(value):
     return json.loads(value) if value.startswith('"') else value
 
 def footprint(name,pads,width,height):
-    content = f'(module {name} (layer F.Cu) (tedit 0) (attr smd)\n'
+    content = f'(module {name} (layer F.Cu) (tedit 0) (attr through_hole)\n'
     content += f'(fp_text reference REF** (at 0 {-height/2-1.4}) (layer F.SilkS) (effects (font (size 1 1) (thickness 0.15))))\n'
     content += f'(fp_text value {name} (at 0 {height/2+1.4}) (layer F.Fab) (effects (font (size 0.8 0.8) (thickness 0.12))))\n'
     for start,end in [((-width/2,-height/2),(width/2,-height/2)),((width/2,-height/2),(width/2,height/2)),((width/2,height/2),(-width/2,height/2)),((-width/2,height/2),(-width/2,-height/2))]:
@@ -73,6 +73,38 @@ sensor_pads = [(str(i+1),round(5.66-i*1.78,3),-5.35,1.3,1.3,0.7) for i in range(
 sensor_pads += [(str(9+i),round(-7.85+i*1.78,3),5.35,1.3,1.3,0.7) for i in range(8)]
 footprint('PAW3395DM_T6QU',sensor_pads,22,12)
 footprint('MouseSwitch_D2F_DRAFT',[(str(i+1),i*5.08,0,1.8,1.8,1.0) for i in range(3)],13,6)
+# TI RGT0016C land pattern, drawing 4222419/E: 1.68mm exposed copper,
+# 1.55mm paste aperture, 0.6 x 0.24mm terminals on a 2.8mm center span.
+bq_pads=[]
+for i in range(4):
+    bq_pads += [(str(1+i),-1.4,-0.75+i*0.5,0.6,0.24,0),
+                (str(5+i),-0.75+i*0.5,1.4,0.24,0.6,0),
+                (str(9+i),1.4,0.75-i*0.5,0.6,0.24,0),
+                (str(13+i),0.75-i*0.5,-1.4,0.24,0.6,0)]
+bq_pads.append(('17',0,0,1.68,1.68,0))
+footprint('BQ24072_RGT0016C',bq_pads,3,3)
+bq=parse((LIB/'BQ24072_RGT0016C.kicad_mod').read_text())
+for pad in bq:
+    if isinstance(pad,list) and pad[0]=='pad' and pad[1]=='17':
+        child(pad,'layers')[:]=['layers','F.Cu','F.Mask']
+bq.append(['pad',quote(''),'smd','rect',['at','0','0'],['size','1.55','1.55'],['layers','F.Paste']])
+for a,b in [((-1.85,-1.85),(1.85,-1.85)),((1.85,-1.85),(1.85,1.85)),((1.85,1.85),(-1.85,1.85)),((-1.85,1.85),(-1.85,-1.85))]:
+    bq.append(['fp_line',['start',str(a[0]),str(a[1])],['end',str(b[0]),str(b[1])],['layer','F.CrtYd'],['width','0.05']])
+(LIB/'BQ24072_RGT0016C.kicad_mod').write_text(sexp(bq)+'\n')
+
+# Local footprint refinements, reflected in both library and embedded board copy.
+sensor_fp=parse((LIB/'PAW3395DM_T6QU.kicad_mod').read_text())
+for a,b in [((-9.52,-6.35),(7.68,-6.35)),((7.68,-6.35),(7.68,6.35)),((7.68,6.35),(-9.52,6.35)),((-9.52,6.35),(-9.52,-6.35))]:
+    sensor_fp.append(['fp_line',['start',str(a[0]),str(a[1])],['end',str(b[0]),str(b[1])],['layer','F.CrtYd'],['width','0.05']])
+(LIB/'PAW3395DM_T6QU.kicad_mod').write_text(sexp(sensor_fp)+'\n')
+usb_fp=parse((LIB/'USB_C.kicad_mod').read_text())
+child(usb_fp,'attr')[1]='through_hole'
+for item in usb_fp:
+    if isinstance(item,list) and item[0]=='fp_line' and child(item,'layer')[1]=='F.SilkS':
+        for point in ('start','end'):
+            xy=child(item,point)
+            if float(xy[2])>3.4: xy[2]='3.4'
+(LIB/'USB_C.kicad_mod').write_text(sexp(usb_fp)+'\n')
 
 module_text = (LIB/'RF_Module.lib').read_text()
 module_section = module_text.split('DEF MDBT50Q-1MV2 ')[1].split('ENDDEF')[0]
@@ -84,7 +116,28 @@ def create_part(ref,value,fp,x,y,nets,names=None,group='misc'):
     pads = [item for item in parse((LIB/(fp+'.kicad_mod')).read_text()) if isinstance(item,list) and item[0]=='pad']
     numbers = {atom(pad[1]) for pad in pads}
     assert set(nets) <= numbers,(ref,set(nets)-numbers)
-    pins = {pin:{'name':(names or {}).get(pin,pin),'net':nets.get(pin)} for pin in sorted(numbers,key=lambda p:(not p.isdigit(),int(p) if p.isdigit() else p))}
+    pins = {pin:{'name':(names or {}).get(pin,pin),'net':nets.get(pin), 'type':'passive'} for pin in sorted(numbers-{''},key=lambda p:(not p.isdigit(),int(p) if p.isdigit() else p))}
+    if ref=='U1':
+        for number,pin in pins.items():
+            pin['type'] = 'power_in' if number in ('1','2','15','28','30','32','33','55') else ('power_out' if number=='31' else 'bidirectional')
+            if number=='53': pin['type']='input'
+    elif ref=='U4':
+        for number in ('3','4','7','8'): pins[number]['type']='power_in'
+        pins['5']['type']='power_out'
+        for number in ('9','12'): pins[number]['type']='output'
+        for number in ('10','11','13','14'): pins[number]['type']='input'
+        for number in ('1','2','6','16'): pins[number]['type']='no_connect'
+    elif ref in ('U3','U5'):
+        for number in ('1','2'): pins[number]['type']='power_in'
+        pins['3']['type']='input'
+        pins['4']['type']='no_connect'
+        pins['5']['type']='power_out'
+    elif ref=='U6':
+        for number in ('8','13','17'): pins[number]['type']='power_in'
+        for number in ('10','11'): pins[number]['type']='power_out'
+        pins['11']['type']='passive' # duplicate physical OUT terminal, not a second source
+        for number in ('4','5','6','15'): pins[number]['type']='input'
+        for number in ('7','9'): pins[number]['type']='open_collector'
     return {'ref':ref,'value':value,'footprint':fp,'x':x,'y':y,'pins':pins,'group':group}
 
 def build_parts(receiver=False):
@@ -93,35 +146,37 @@ def build_parts(receiver=False):
         value = create_part(*args,**kwargs)
         parts.append(value)
         return value
-    mx,my = (10,36) if receiver else (32,84)
+    mx,my = (14,44) if receiver else (32,84)
     gpio = {27:'SENSOR_IRQ',36:'SPI_SCLK',37:'SPI_MOSI',38:'SENSOR_NCS',39:'SPI_MISO',41:'SENSOR_RESET',43:'BUTTON_RIGHT',44:'BUTTON_LEFT',45:'BUTTON_MIDDLE',46:'BUTTON_BACK',48:'BUTTON_FORWARD',49:'ENCODER_A',19:'ENCODER_B',20:'BATTERY_ADC'}
     module_nets = {1:'GND',2:'GND',15:'GND',28:'VDD_3V0',30:'VDD_3V0',32:'USB_VBUS',33:'GND',34:'USB_DM',35:'USB_DP',40:'MCU_RESET',51:'SWDIO',53:'SWDCLK',55:'GND',16:'PAIR',17:'LF_XL1',18:'LF_XL2'}
     if not receiver:
         module_nets.update(gpio)
     add('U1','MDBT50Q-1MV2','Raytac_MDBT50Q',mx,my,module_nets,module_names,'controller')
     parts[-1]['rotation'] = 180
-    ux,uy = (10,3.6) if receiver else (32,3.6)
+    ux,uy = (14,3.6) if receiver else (32,3.6)
     usb_nets = {'A1':'GND','B12':'GND','A12':'GND','B1':'GND','A4':'USB_VBUS','B9':'USB_VBUS','A9':'USB_VBUS','B4':'USB_VBUS','A5':'CC1','B5':'CC2','A6':'USB_DP','B6':'USB_DP','A7':'USB_DM','B7':'USB_DM','S1':'GND'}
     add('J1','USB-C HRO TYPE-C-31-M-12','USB_C',ux,uy,usb_nets,group='USB')
-    add('U2','USBLC6-2SC6','SOT-23-6',ux+6,uy+4,{1:'USB_DP',6:'USB_DP',3:'USB_DM',4:'USB_DM',2:'GND',5:'USB_VBUS'},group='USB')
+    parts[-1]['rotation']=180
+    add('U2','USBLC6-2SC6','SOT-23-6',ux,11.5,{1:'USB_DP',6:'USB_DP',3:'USB_DM',4:'USB_DM',2:'GND',5:'USB_VBUS'},group='USB')
+    parts[-1]['rotation']=90
     for i,net in enumerate(('CC1','CC2')):
-        add('R'+str(i+1),'5.1k 1%','R_0603_1608Metric',ux-6+i*3,uy+4,{1:net,2:'GND'},group='USB')
+        add('R'+str(i+1),'5.1k 1%','R_0603_1608Metric',ux-7+i*14,9,{1:net,2:'GND'},group='USB')
     # TLV700 DDC: 1 IN, 2 GND, 3 EN, 4 NC, 5 OUT.
-    reg_x,reg_y = (5,13) if receiver else (13,61)
+    reg_x,reg_y = (23,16) if receiver else (13,61)
     regulator_in = 'USB_VBUS' if receiver else 'SYSTEM_ON'
     add('U3','TLV70030DDCR','SOT-23-5',reg_x,reg_y,{1:regulator_in,2:'GND',3:regulator_in,5:'VDD_3V0'},group='power')
     add('C1','1uF 10V X7R','C_0603_1608Metric',reg_x-2,reg_y+3,{1:regulator_in,2:'GND'},group='power')
     add('C2','4.7uF 6.3V X5R','C_0603_1608Metric',reg_x+2,reg_y+3,{1:'VDD_3V0',2:'GND'},group='power')
     for i,(dx,dy) in enumerate(((0,-9),(3,-9))):
         add('C'+str(3+i),'100nF 10V X7R','C_0603_1608Metric',mx+dx,my+dy,{1:'VDD_3V0',2:'GND'},group='controller')
-    add('C5','1uF 10V X7R','C_0603_1608Metric',ux+3,uy+7,{1:'USB_VBUS',2:'GND'},group='USB')
+    add('C5','1uF 10V X7R','C_0603_1608Metric',ux+6,11,{1:'USB_VBUS',2:'GND'},group='USB')
     add('Y1','32.768kHz 12.5pF ABS07','Crystal_SMD_3215-2Pin_3.2x1.5mm',mx-2,my-11,{1:'LF_XL1',2:'LF_XL2'},group='controller')
     for i,net in enumerate(('LF_XL1','LF_XL2')):
         add('C'+str(6+i),'18pF C0G (tune)','C_0603_1608Metric',mx-4+i*4,my-13,{1:net,2:'GND'},group='controller')
-    add('J2','SWD: VDD / SWDIO / SWDCLK / GND / RESET','PinHeader_1x05_P2.54mm_Vertical',2 if receiver else 57,23 if receiver else 67,{1:'VDD_3V0',2:'SWDIO',3:'SWDCLK',4:'GND',5:'MCU_RESET'},group='debug')
-    add('SW1','PAIR TL3342','SW_SPST_TL3342',15 if receiver else 10,14 if receiver else 78,{1:'PAIR',2:'GND'},group='controls')
-    add('SW2','RESET TL3342','SW_SPST_TL3342',15 if receiver else 10,19 if receiver else 84,{1:'MCU_RESET',2:'GND'},group='controls')
-    add('R3','10k','R_0603_1608Metric',16 if receiver else 14,23 if receiver else 84,{1:'VDD_3V0',2:'MCU_RESET'},group='controller')
+    add('J2','SWD: VDD / SWDIO / SWDCLK / GND / RESET','PinHeader_1x05_P2.54mm_Vertical',2.8 if receiver else 57,28 if receiver else 67,{1:'VDD_3V0',2:'SWDIO',3:'SWDCLK',4:'GND',5:'MCU_RESET'},group='debug')
+    add('SW1','PAIR TL3342','SW_SPST_TL3342',5 if receiver else 10,15 if receiver else 78,{1:'PAIR',2:'GND'},group='controls')
+    add('SW2','RESET TL3342','SW_SPST_TL3342',23 if receiver else 10,27 if receiver else 84,{1:'MCU_RESET',2:'GND'},group='controls')
+    add('R3','10k','R_0603_1608Metric',23 if receiver else 17,33 if receiver else 84,{1:'VDD_3V0',2:'MCU_RESET'},group='controller')
     if receiver:
         return parts
     sensor_names={str(k):v for k,v in enumerate(('NC','NC','GND','VDD','VDDREG','NC','VDDIO','GNDIO','MOTION','SCLK','MOSI','MISO','NCS','NRESET','LED_P','NC'),1)}
@@ -129,18 +184,18 @@ def build_parts(receiver=False):
     add('U5','TLV70019DDCR','SOT-23-5',46,48,{1:'VDD_3V0',2:'GND',3:'VDD_3V0',5:'VDD_1V9'},group='sensor')
     for ref,value,fp,x,y,net in [('C8','1uF 10V X7R','C_0603_1608Metric',47,51,'VDD_3V0'),('C9','10uF 6.3V X5R','C_0805_2012Metric',45,44,'VDD_1V9'),('C10','100nF X7R','C_0603_1608Metric',43,41,'VDD_1V9'),('C11','4.7uF X5R','C_0603_1608Metric',25,35,'SENSOR_VDDREG'),('C12','100nF X7R','C_0603_1608Metric',28,35,'SENSOR_VDDREG'),('C13','10uF X5R','C_0805_2012Metric',17,45,'VDD_3V0'),('C14','100nF X7R','C_0603_1608Metric',18,48,'VDD_3V0'),('C15','33uF 6.3V X5R','C_0805_2012Metric',42,53,'VDD_1V9')]:
         add(ref,value,fp,x,y,{1:net,2:'GND'},group='sensor')
-    add('R4','5.6R 1%','R_0603_1608Metric',40,52,{1:'VDD_1V9',2:'SENSOR_LED_P'},group='sensor')
+    add('R4','5.6R 1%','R_0603_1608Metric',38,56,{1:'VDD_1V9',2:'SENSOR_LED_P'},group='sensor')
     add('R5','10k','R_0603_1608Metric',50,42,{1:'VDD_3V0',2:'SPI_MISO'},group='sensor')
     # Integrated power path, hard-limited USB100 mode. Conservative prototype.
     charger_nets={1:'BATTERY_NTC',2:'BATTERY',3:'BATTERY',4:'GND',5:'GND',6:'GND',7:'POWER_GOOD',8:'GND',9:'CHARGING',10:'SYSTEM',11:'SYSTEM',12:'CHARGER_ILIM',13:'USB_VBUS',14:'CHARGER_TMR',15:'GND',16:'CHARGER_ISET',17:'GND'}
     charger_names={str(i):name for i,name in enumerate(('TS','BAT','BAT','CE','EN2','EN1','PGOOD','VSS','CHG','OUT','OUT','ILIM','IN','TMR','TD','ISET','EP'),1)}
-    add('U6','BQ24072RGTR','VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm',16,14,charger_nets,charger_names,'battery')
-    add('J3','Protected 1S 300mAh + 10k NTC (BAT/GND/NTC)','JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical',6,53,{1:'BATTERY',2:'GND',3:'BATTERY_NTC'},group='battery')
+    add('U6','BQ24072RGTR','BQ24072_RGT0016C',16,14,charger_nets,charger_names,'battery')
+    add('J3','Protected 1S 300mAh + 10k NTC (BAT/GND/NTC)','JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical',6,50,{1:'BATTERY',2:'GND',3:'BATTERY_NTC'},group='battery')
     for ref,value,x,y,net in [('R6','5.90k 1%',11,18,'CHARGER_ISET'),('R7','3.09k 1%',14,18,'CHARGER_ILIM'),('R8','68k 1%',17,18,'CHARGER_TMR')]:
         add(ref,value,'R_0603_1608Metric',x,y,{1:net,2:'GND'},group='battery')
-    for ref,value,x,y,net in [('C16','1uF 10V X7R',16,10,'USB_VBUS'),('C17','10uF 6.3V X5R',20,17,'SYSTEM'),('C18','10uF 6.3V X5R',11,12,'BATTERY')]:
+    for ref,value,x,y,net in [('C16','1uF 10V X7R',16,10,'USB_VBUS'),('C17','10uF 6.3V X5R',22,15,'SYSTEM'),('C18','10uF 6.3V X5R',11,12,'BATTERY')]:
         add(ref,value,'C_0805_2012Metric',x,y,{1:net,2:'GND'},group='battery')
-    add('SW3','Power PCM12','SW_SPDT_PCM12',7,63,{1:'SYSTEM',2:'SYSTEM_ON'},group='battery')
+    add('SW3','Power PCM12','SW_SPDT_PCM12',7,56,{1:'SYSTEM',2:'SYSTEM_ON'},group='battery')
     # One board-side resistor each; NTC must be thermally attached to cell.
     add('R9','100k 1%','R_0603_1608Metric',6,70,{1:'BATTERY',2:'BATTERY_ADC'},group='battery')
     add('R10','100k 1%','R_0603_1608Metric',9,70,{1:'BATTERY_ADC',2:'GND'},group='battery')
@@ -149,7 +204,7 @@ def build_parts(receiver=False):
         add(ref,'100k','R_0603_1608Metric',x,22,{1:'VDD_3V0',2:net},group='battery')
     add('J4','Charger status: GND / PGOOD / CHG','PinHeader_1x03_P2.54mm_Vertical',6,26,{1:'GND',2:'POWER_GOOD',3:'CHARGING'},group='battery')
     # External contacts allow the first prototype to fit a future shell.
-    for i,(net,x,y) in enumerate([('BUTTON_LEFT',18,25),('BUTTON_RIGHT',44,25),('BUTTON_MIDDLE',30,20),('BUTTON_BACK',5,39),('BUTTON_FORWARD',5,44)]):
+    for i,(net,x,y) in enumerate([('BUTTON_LEFT',18,25),('BUTTON_RIGHT',45,23),('BUTTON_MIDDLE',34,22),('BUTTON_BACK',5,37),('BUTTON_FORWARD',10,43)]):
         add('J'+str(5+i),net+' contact','PinHeader_1x02_P2.54mm_Vertical',x,y,{1:net,2:'GND'},group='controls')
     add('J10','Encoder: A / GND / B','PinHeader_1x03_P2.54mm_Vertical',27,12,{1:'ENCODER_A',2:'GND',3:'ENCODER_B'},group='controls')
     return parts
@@ -161,7 +216,7 @@ def make_schematic(name,parts):
         pins = list(part['pins'].items())
         half = math.ceil(len(pins)/2)
         height = max(5.08,(half+1)*2.54)
-        width = 28 if len(pins)>8 else 18
+        width = 30.48 if len(pins)>8 else 20.32
         libid = 'OpenMice:'+ref
         graphics = f'(symbol "{ref}_0_1" (rectangle (start {-width/2} {height/2}) (end {width/2} {-height/2}) (stroke (width 0.254) (type default)) (fill (type background))))'
         pinsexp,local = [],{}
@@ -171,10 +226,10 @@ def make_schematic(name,parts):
             x,y = side*(width/2+2.54),height/2-2.54-row*2.54
             angle = 0 if side<0 else 180
             local[number]=(x,y,side)
-            pinsexp.append(f'(pin passive line (at {x} {y} {angle}) (length 2.54) (name {quote(pin["name"])} (effects (font (size 0.8 0.8)))) (number {quote(number)} (effects (font (size 0.8 0.8)))))')
+            pinsexp.append(f'(pin {pin["type"]} line (at {x} {y} {angle}) (length 2.54) (name {quote(pin["name"])} (effects (font (size 0.8 0.8)))) (number {quote(number)} (effects (font (size 0.8 0.8)))))')
         symbols.append(f'(symbol {quote(libid)} (pin_names (offset 0.5)) (in_bom yes) (on_board yes) (property "Reference" "{ref}" (at 0 {height/2+2} 0) (effects (font (size 1.27 1.27)))) (property "Value" {quote(part["value"])} (at 0 {-height/2-2} 0) (effects (font (size 1 1)))) {graphics} (symbol "{ref}_1_1" {" ".join(pinsexp)}))')
         # A1 canvas. Blocks share net labels, not long crossing wires.
-        sx,sy = 55+(index%8)*102,55+(index//8)*75
+        sx,sy = 50.8+(index%8)*101.6,50.8+(index//8)*76.2
         instance_id = uid(name+'/'+ref)
         properties = f'(property "Reference" "{ref}" (at {sx} {sy-height/2-4} 0) (effects (font (size 1.27 1.27)))) (property "Value" {quote(part["value"])} (at {sx} {sy+height/2+4} 0) (effects (font (size 1 1)))) (property "Footprint" "OpenMice:{part["footprint"]}" (at {sx} {sy} 0) (effects (font (size 1.27 1.27)) hide))'
         instances.append(f'(symbol (lib_id {quote(libid)}) (at {sx} {sy} 0) (unit 1) (in_bom yes) (on_board yes) (uuid {instance_id}) {properties} (instances (project "{name}" (path "/{uid(name)}" (reference "{ref}") (unit 1)))))')
@@ -187,7 +242,14 @@ def make_schematic(name,parts):
                 instances.append(f'(label {quote(pin["net"])} (at {bx} {ay} {0 if side>0 else 180}) (effects (font (size 0.8 0.8)) (justify left bottom)) (uuid {uid(name+ref+number+"label")}))')
             else:
                 instances.append(f'(no_connect (at {ax} {ay}) (uuid {uid(name+ref+number+"nc")}))')
-    content = f'(kicad_sch (version 20231120) (generator "eeschema") (uuid {uid(name)}) (paper "A1") (title_block (title "{name} - electrical connectivity draft") (rev "A0") (comment 1 "Prototype: routing and ERC/DRC not released")) (lib_symbols {" ".join(symbols)}) {" ".join(instances)} (sheet_instances (path "/" (page "1"))))\n'
+    symbols.append('(symbol "OpenMice:PWR_FLAG" (pin_names (offset 0) hide) (in_bom no) (on_board no) (property "Reference" "#FLG" (at 0 2.54 0) (effects (font (size 1.27 1.27)))) (property "Value" "PWR_FLAG" (at 0 0 0) (effects (font (size 1.27 1.27)) hide)) (symbol "PWR_FLAG_1_1" (pin power_out line (at 0 0 90) (length 0) (name "pwr" (effects (font (size 1 1)))) (number "1" (effects (font (size 1 1)))))))')
+    supplies=['GND','USB_VBUS']+(['BATTERY','SYSTEM_ON'] if name=='mouse' else [])
+    for i,net in enumerate(supplies):
+        x,y=50.8+i*50.8,558.8
+        ref='#FLG'+str(i+1)
+        instances.append(f'(symbol (lib_id "OpenMice:PWR_FLAG") (at {x} {y} 0) (unit 1) (in_bom no) (on_board no) (uuid {uid(name+ref)}) (property "Reference" "{ref}" (at {x} {y-2.54} 0) (effects (font (size 1.27 1.27)))) (property "Value" "PWR_FLAG" (at {x} {y} 0) (effects (font (size 1 1)) hide)) (instances (project "{name}" (path "/{uid(name)}" (reference "{ref}") (unit 1)))))')
+        instances.append(f'(label {quote(net)} (at {x} {y} 0) (effects (font (size 1 1)) (justify left bottom)) (uuid {uid(name+ref+"label")}))')
+    content = f'(kicad_sch (version 20231120) (generator "eeschema") (uuid {uid(name)}) (paper "A1") (title_block (title "{name} - PAW3395 wireless prototype") (rev "A1") (comment 1 "Physical validation pending")) (lib_symbols {" ".join(symbols)}) {" ".join(instances)} (sheet_instances (path "/" (page "1"))))\n'
     parse(content)
     return content
 
@@ -200,7 +262,7 @@ def make_board(name,parts,width,height):
     for part in parts:
         fp = parse((LIB/(part['footprint']+'.kicad_mod')).read_text())
         fp[1] = quote('OpenMice:'+part['footprint'])
-        fp = [item for item in fp if not isinstance(item,list) or item[0] not in ('at','path','model')]
+        fp = [item for item in fp if not isinstance(item,list) or item[0] not in ('at','path')]
         rotation=part.get('rotation',0)
         fp.extend([['at',str(part['x']),str(part['y']),str(rotation)],['path',quote('/'+uid(name+'/'+part['ref']))]])
         for item in fp:
@@ -212,11 +274,8 @@ def make_board(name,parts,width,height):
                 elif item[1]=='value':
                     item[2] = quote(part['value'])
             elif item[0]=='pad':
-                at=child(item,'at')
-                old_angle=float(at[3]) if len(at)>3 else 0
-                at[:]=['at',at[1],at[2],str((old_angle+rotation)%360)]
                 number = atom(item[1])
-                net = part['pins'][number]['net']
+                net = part['pins'].get(number,{}).get('net')
                 if net:
                     item.append(['net',str(netids[net]),quote(net)])
         board.append(fp)
@@ -225,10 +284,10 @@ def make_board(name,parts,width,height):
     for a,b in [((0,0),(width,0)),((width,0),(width,height)),((width,height),(0,height)),((0,height),(0,0))]:
         line(a,b)
     if name=='mouse':
-        # Mechanical CUTOUT is deliberately on drawing layer until lens confirmed.
-        for a,b in [((23.2,39.7),(40.4,39.7)),((40.4,39.7),(40.4,48.3)),((40.4,48.3),(23.2,48.3)),((23.2,48.3),(23.2,39.7))]:
-            line(a,b,'Dwgs.User')
-        label='OPTICAL CUTOUT: VERIFY FIG.4 + LENS'
+        # Figure 4 aperture: 14.48+2.78 x 8.60mm, referenced to optical center.
+        for a,b in [((23.18,39.7),(40.44,39.7)),((40.44,39.7),(40.44,48.3)),((40.44,48.3),(23.18,48.3)),((23.18,48.3),(23.18,39.7))]:
+            line(a,b)
+        label='LM19-LSI OPTICAL CENTER'
         tx,ty=32,44
     else:
         label='OPENMICE RECEIVER A0'
@@ -267,11 +326,20 @@ def svg(name,parts,width,height):
     out.append(f'<text x="{width*scale/2}" y="{height*scale+25}" text-anchor="middle" fill="#23483c" font-size="13">{name.upper()} · {width} × {height} mm · component placement draft</text><text x="{width*scale/2}" y="{height*scale+44}" text-anchor="middle" fill="#65766a" font-size="10">Unrouted. Verify RF keep-out and optics before fabrication.</text></svg>')
     return ''.join(out)
 
-for name,width,height in [('mouse',64,94),('receiver',20,44)]:
+for name,width,height in [('mouse',64,94),('receiver',28,54)]:
     out = HW/name
     out.mkdir(parents=True,exist_ok=True)
     parts = build_parts(name=='receiver')
     (out/(name+'.kicad_sch')).write_text(make_schematic(name,parts))
+    sch=parse((out/(name+'.kicad_sch')).read_text())
+    library=['kicad_symbol_lib',['version','20231120'],['generator',quote('kicad_symbol_editor')]]
+    for symbol in child(sch,'lib_symbols')[1:]:
+        symbol[1]=quote(atom(symbol[1]).split(':',1)[1])
+        library.append(symbol)
+    (out/'OpenMice.kicad_sym').write_text(sexp(library)+'\n')
+    (out/'sym-lib-table').write_text('(sym_lib_table (version 7) (lib (name "OpenMice") (type "KiCad") (uri "${KIPRJMOD}/OpenMice.kicad_sym") (options "") (descr "OpenMice electrical symbols")))\n')
+    classes=[{'name':'Default','clearance':0.125,'track_width':0.17,'via_diameter':0.5,'via_drill':0.2,'microvia_diameter':0.3,'microvia_drill':0.1,'diff_pair_width':0.17,'diff_pair_gap':0.15,'diff_pair_via_gap':0.25}]
+    (out/(name+'.kicad_pro')).write_text(json.dumps({'meta':{'version':1,'filename':name+'.kicad_pro'},'net_settings':{'classes':classes,'netclass_assignments':{},'meta':{'version':3}},'board':{'design_settings':{'rule_severities':{'missing_courtyard':'warning','footprint_type_mismatch':'warning','track_not_centered_on_via':'warning'},'rules':{'min_clearance':0.125,'min_track_width':0.125,'min_via_diameter':0.5,'min_through_hole_diameter':0.2,'min_hole_clearance':0.25,'min_copper_edge_clearance':0.25,'min_silk_clearance':0.1}}}},indent=2)+'\n')
     (out/(name+'.kicad_pcb')).write_text(make_board(name,parts,width,height))
     (out/'connectivity.json').write_text(json.dumps({'name':name,'width_mm':width,'height_mm':height,'status':'unrouted placement draft','parts':parts},indent=2)+'\n')
     (out/'placement.svg').write_text(svg(name,parts,width,height))

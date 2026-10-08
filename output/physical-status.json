@@ -1,0 +1,6 @@
+{
+  "status": "NOT_RUN",
+  "reason": "No assembled mouse or receiver board",
+  "procedure": "docs/FIRST_ARTICLE.md",
+  "harness": "tools/bench_config.py"
+}

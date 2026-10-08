@@ -1,43 +1,33 @@
 # Setup, protocol and verification
 
-**A0 status:** application code tested on a host, custom CircuitPython board
-definition prepared, no compiled native firmware/bootloader, no physical tests,
-and unrouted PCB drafts. The application ZIPs are not flashable UF2 files.
+**A1 status:** routed boards pass KiCad ERC/DRC and schematic parity. Native
+runtime and bootloader are compiled and packaged. Physical tests are NOT RUN.
+Read [first-article procedure](FIRST_ARTICLE.md) before powering an assembled board.
 
 ## Runtime and application
 
-The custom PCB is not a nice!nano. Do not use a nice!nano runtime: P0.15 is MISO
-here, while that board's runtime uses it as a status LED.
-`firmware/board/openmice_nrf52840` is a native board definition prepared against
-CircuitPython 9.2.8's Nordic port. Both devices use this target, internal flash,
-an external 32.768 kHz crystal, and no status LED. It has not been compiled.
+Both devices use the custom openmice_nrf52840 runtime, not a nice!nano runtime.
+P0.15 is sensor MISO and must not drive a status LED. The runtime includes frozen
+BLE dependencies and the native PAW startup polling helper.
 
-On a supported build host, check out the official CircuitPython 9.2.8 tag, install
-its documented prerequisites/submodules, copy the board folder to
-`ports/nordic/boards/`, and build:
+For a blank board, use an SWD probe to program and verify
+`output/native/openmice-factory.hex`. It includes MBR, S140 6.1.1, bootloader,
+application and UICR/valid-bank settings. Confirm probe voltage and target pinout.
+No board has yet been flashed. Do not use a commercial-board bootloader.
 
-```sh
-make -C mpy-cross
-make -C ports/nordic BOARD=openmice_nrf52840
-```
+For runtime updates after provisioning, hold Pair during reset to enter the
+bootloader and copy `output/native/openmice-runtime.uf2` to its UF2 drive.
+The bootloader update UF2 in the native bundle is a different image and is
+only for bootloader maintenance. SWD is the recovery path.
 
-See [building CircuitPython](https://docs.circuitpython.org/en/stable/BUILDING.html)
-and the [Nordic flashing guide](https://learn.adafruit.com/circuitpython-on-the-nrf52/build-flash-circuitpython).
-First programming needs an SWD probe and a compatible bootloader/SoftDevice
-memory layout. A bootloader definition/build for these pins is **outstanding**.
-Confirm reset P0.18 configuration in UICR. Do not assume a commercial-board
-bootloader is suitable.
+Copy contents of `output/openmice-mouse.zip` or `output/openmice-receiver.zip`
+to the corresponding CIRCUITPY drive. No external BLE bundle is needed.
+Power-cycle after changing boot.py. Mouse report ID 2 and keyboard ID 1 share
+one HID interface; the configuration CDC channel and recovery storage remain
+enabled. Enumeration and recovery must be verified on the first physical board.
 
-The runtime uses [1209:0001](https://pid.codes/1209/0001/), a shared private-test
-USB ID. It is not unique and must be replaced by an assigned ID for distribution
-or manufacture beyond private test units.
-
-Run `python tools/package_firmware.py`. Copy the matching application ZIP's
-contents to CIRCUITPY after the validated runtime is installed. Add `adafruit_ble`
-and its dependencies from the CircuitPython 9.x library bundle to `lib/`.
-Power-cycle after boot.py changes. Boot enables 16-bit mouse/keyboard HID, one
-data serial channel and recovery storage; serial REPL is disabled. Endpoint
-allocation and safe-mode recovery still need verification on the actual runtime.
+The USB ID 1209:0001 is a shared private-test ID; allocate a unique ID for wider
+distribution. Source/build steps and hashes are in [BUILD.md](BUILD.md).
 
 ## Pairing and browser
 
@@ -89,23 +79,26 @@ wireless `motion:[dx,dy,wheel,button_mask,keycodes]` and forwards command replie
 DPI is 50–26000 in steps of 50. Bindings are mouse actions, none, or key: plus
 1–6 distinct UI-supported key names joined by +.
 
-Config uses two checksummed 512-byte NVM slots with a final commit marker, in
-bytes 0–1023. Receiver peer identity starts at offset 1024; preserve this layout.
+Config uses two checksummed 4096-byte NVM slots on separate flash erase pages,
+bytes 0–8191. Receiver peer identity starts at offset 8192 in a third page.
+The native runtime reserves 12 KiB. Preserve this layout; smaller generic-runtime
+allocations are incompatible.
 
 ## Verification
 
-Completed: 16 Python tests for sensor startup/fallback, signed extremes, SPI error
-cleanup, DPI/ripple control, validation, torn/corrupt storage, duplicate bindings,
-debounce, quadrature, HID report shape, partial CDC writes and PCB pin mapping.
-Five JavaScript tests cover validation, split/correlated responses, errors,
-timeouts, overflow and disconnect cancellation. Browser demo was exercised with
-1600 DPI and a CTRL+C side-button binding. Hardware checks are structural only.
+Completed: 18 host Python tests and five JavaScript tests. Coverage includes
+sensor startup/fallback, signed motion, SPI cleanup, DPI/ripple control, validation,
+page-erasure power interruption, duplicate bindings, debounce, quadrature, HID
+lengths/distinct report IDs, partial CDC writes and hardware pin mapping.
+The browser demo was exercised with DPI and a keyboard side-button binding.
 
-Still required: native runtime/bootloader builds and USB endpoint enumeration;
-real BLE pairing/reconnect/fragmentation and transport fault tests; logic-analyser
-SPI timing (including the datasheet ±1% 1 ms startup cadence, best effort in
-Python); calibrated CPI/optical alignment; switch/encoder behavior; NTC, charging,
-power-path transition and temperature tests; RF range, current and latency;
-complete routing, stack-up/mechanical review, ERC/DRC and first article.
-PAW3395 rest mode is retained, but MCU deep sleep and firmware low-battery shutdown
-are not implemented. Pack protection is required. Battery life is not measured.
+Both boards pass native KiCad 10.0.6 ERC, DRC, connectivity and schematic parity.
+ARM GNU 13.2.Rel1 compiled the custom CircuitPython 9.2.8 runtime and Adafruit
+0.11.0 bootloader with matching S140 6.1.1. These are build/host checks only.
+
+Physical tests are NOT RUN. USB enumeration, SPI timing, optics/CPI, input behavior,
+persistence on hardware, pairing/reconnect, charging/NTC/thermal behavior, current,
+range and latency remain in [FIRST_ARTICLE.md](FIRST_ARTICLE.md). The serial bench
+harness is supplied but has not been run against a board. PAW rest mode is retained;
+MCU deep sleep and firmware low-battery shutdown are not implemented. Pack
+protection is required, and battery life is not measured.

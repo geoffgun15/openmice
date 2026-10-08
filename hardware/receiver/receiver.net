@@ -1,1 +1,3153 @@
-(export (version D) (components (comp (ref "U1") (value "MDBT50Q-1MV2") (footprint "OpenMice:Raytac_MDBT50Q")) (comp (ref "J1") (value "USB-C HRO TYPE-C-31-M-12") (footprint "OpenMice:USB_C")) (comp (ref "U2") (value "USBLC6-2SC6") (footprint "OpenMice:SOT-23-6")) (comp (ref "R1") (value "5.1k 1%") (footprint "OpenMice:R_0603_1608Metric")) (comp (ref "R2") (value "5.1k 1%") (footprint "OpenMice:R_0603_1608Metric")) (comp (ref "U3") (value "TLV70030DDCR") (footprint "OpenMice:SOT-23-5")) (comp (ref "C1") (value "1uF 10V X7R") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "C2") (value "4.7uF 6.3V X5R") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "C3") (value "100nF 10V X7R") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "C4") (value "100nF 10V X7R") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "C5") (value "1uF 10V X7R") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "Y1") (value "32.768kHz 12.5pF ABS07") (footprint "OpenMice:Crystal_SMD_3215-2Pin_3.2x1.5mm")) (comp (ref "C6") (value "18pF C0G (tune)") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "C7") (value "18pF C0G (tune)") (footprint "OpenMice:C_0603_1608Metric")) (comp (ref "J2") (value "SWD: VDD / SWDIO / SWDCLK / GND / RESET") (footprint "OpenMice:PinHeader_1x05_P2.54mm_Vertical")) (comp (ref "SW1") (value "PAIR TL3342") (footprint "OpenMice:SW_SPST_TL3342")) (comp (ref "SW2") (value "RESET TL3342") (footprint "OpenMice:SW_SPST_TL3342")) (comp (ref "R3") (value "10k") (footprint "OpenMice:R_0603_1608Metric"))) (nets (net (code 1) (name "CC1") (node (ref "J1") (pin "A5")) (node (ref "R1") (pin "1"))) (net (code 2) (name "CC2") (node (ref "J1") (pin "B5")) (node (ref "R2") (pin "1"))) (net (code 3) (name "GND") (node (ref "U1") (pin "1")) (node (ref "U1") (pin "2")) (node (ref "U1") (pin "15")) (node (ref "U1") (pin "33")) (node (ref "U1") (pin "55")) (node (ref "J1") (pin "A1")) (node (ref "J1") (pin "A12")) (node (ref "J1") (pin "B1")) (node (ref "J1") (pin "B12")) (node (ref "J1") (pin "S1")) (node (ref "U2") (pin "2")) (node (ref "R1") (pin "2")) (node (ref "R2") (pin "2")) (node (ref "U3") (pin "2")) (node (ref "C1") (pin "2")) (node (ref "C2") (pin "2")) (node (ref "C3") (pin "2")) (node (ref "C4") (pin "2")) (node (ref "C5") (pin "2")) (node (ref "C6") (pin "2")) (node (ref "C7") (pin "2")) (node (ref "J2") (pin "4")) (node (ref "SW1") (pin "2")) (node (ref "SW2") (pin "2"))) (net (code 4) (name "LF_XL1") (node (ref "U1") (pin "17")) (node (ref "Y1") (pin "1")) (node (ref "C6") (pin "1"))) (net (code 5) (name "LF_XL2") (node (ref "U1") (pin "18")) (node (ref "Y1") (pin "2")) (node (ref "C7") (pin "1"))) (net (code 6) (name "MCU_RESET") (node (ref "U1") (pin "40")) (node (ref "J2") (pin "5")) (node (ref "SW2") (pin "1")) (node (ref "R3") (pin "2"))) (net (code 7) (name "PAIR") (node (ref "U1") (pin "16")) (node (ref "SW1") (pin "1"))) (net (code 8) (name "SWDCLK") (node (ref "U1") (pin "53")) (node (ref "J2") (pin "3"))) (net (code 9) (name "SWDIO") (node (ref "U1") (pin "51")) (node (ref "J2") (pin "2"))) (net (code 10) (name "USB_DM") (node (ref "U1") (pin "34")) (node (ref "J1") (pin "A7")) (node (ref "J1") (pin "B7")) (node (ref "U2") (pin "3")) (node (ref "U2") (pin "4"))) (net (code 11) (name "USB_DP") (node (ref "U1") (pin "35")) (node (ref "J1") (pin "A6")) (node (ref "J1") (pin "B6")) (node (ref "U2") (pin "1")) (node (ref "U2") (pin "6"))) (net (code 12) (name "USB_VBUS") (node (ref "U1") (pin "32")) (node (ref "J1") (pin "A4")) (node (ref "J1") (pin "A9")) (node (ref "J1") (pin "B4")) (node (ref "J1") (pin "B9")) (node (ref "U2") (pin "5")) (node (ref "U3") (pin "1")) (node (ref "U3") (pin "3")) (node (ref "C1") (pin "1")) (node (ref "C5") (pin "1"))) (net (code 13) (name "VDD_3V0") (node (ref "U1") (pin "28")) (node (ref "U1") (pin "30")) (node (ref "U3") (pin "5")) (node (ref "C2") (pin "1")) (node (ref "C3") (pin "1")) (node (ref "C4") (pin "1")) (node (ref "J2") (pin "1")) (node (ref "R3") (pin "1")))))
+(export
+	(version "E")
+	(design
+		(source "C:\\Users\\geoff\\.codex\\.chatgpt-projects\\g-p-6ac64a1c0cc081918f76a55d8da01c50\\OpenMice-Implementation\\hardware\\receiver\\receiver.kicad_sch")
+		(date "2026-10-08T23:40:25")
+		(tool "Eeschema 10.0.6")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "receiver - PAW3395 wireless prototype")
+				(company)
+				(rev "A1")
+				(date)
+				(source "receiver.kicad_sch")
+				(comment
+					(number "1")
+					(value "Physical validation pending")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "C1")
+			(value "1uF 10V X7R")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2100d17d-8000-5711-8619-d7c0ddf93bfe")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "4.7uF 6.3V X5R")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8981451e-88be-53b3-a551-83bd77ad135c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C3")
+			(value "100nF 10V X7R")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C3")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c84713f2-c215-5dd1-a8f1-070b8f6260d5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C4")
+			(value "100nF 10V X7R")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C4")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "75417c96-1757-5c5d-8a90-ccfa6c894717")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C5")
+			(value "1uF 10V X7R")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C5")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "dcaf789d-3aee-5d68-b1a4-9389a9230272")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C6")
+			(value "18pF C0G (tune)")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C6")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "53dee906-9cfa-5fcc-87e4-9e5df2b35844")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C7")
+			(value "18pF C0G (tune)")
+			(footprint "OpenMice:C_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:C_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "C7")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ec1daf21-cf54-5941-b6f7-6d7fc8a4f8a4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "USB-C HRO TYPE-C-31-M-12")
+			(footprint "OpenMice:USB_C")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:USB_C")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "J1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8aa9651e-0ca3-581c-81b3-225e1ff69c21")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "A1")
+						)
+						(pin
+							(num "A12")
+						)
+						(pin
+							(num "A4")
+						)
+						(pin
+							(num "A5")
+						)
+						(pin
+							(num "A6")
+						)
+						(pin
+							(num "A7")
+						)
+						(pin
+							(num "A8")
+						)
+						(pin
+							(num "A9")
+						)
+						(pin
+							(num "B1")
+						)
+						(pin
+							(num "B12")
+						)
+						(pin
+							(num "B4")
+						)
+						(pin
+							(num "B5")
+						)
+						(pin
+							(num "B6")
+						)
+						(pin
+							(num "B7")
+						)
+						(pin
+							(num "B8")
+						)
+						(pin
+							(num "B9")
+						)
+						(pin
+							(num "S1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J2")
+			(value "SWD: VDD / SWDIO / SWDCLK / GND / RESET")
+			(footprint "OpenMice:PinHeader_1x05_P2.54mm_Vertical")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:PinHeader_1x05_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "J2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "60cd4199-9520-5698-b341-2e88dd6e0e22")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "5.1k 1%")
+			(footprint "OpenMice:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "R1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a054c49f-7fc5-5659-bd21-728a315278d7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "5.1k 1%")
+			(footprint "OpenMice:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "R2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2f976ed0-5e5b-5ef6-acef-69df639bbb27")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R3")
+			(value "10k")
+			(footprint "OpenMice:R_0603_1608Metric")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "R3")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b27a3d60-c463-5cb2-9b2c-e670352492a0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "SW1")
+			(value "PAIR TL3342")
+			(footprint "OpenMice:SW_SPST_TL3342")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:SW_SPST_TL3342")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "SW1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "fa499139-1229-58ee-a35e-e985ee679c25")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "SW2")
+			(value "RESET TL3342")
+			(footprint "OpenMice:SW_SPST_TL3342")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:SW_SPST_TL3342")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "SW2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "21629b8e-5fa2-58e3-b8dd-6359f10a65f6")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "MDBT50Q-1MV2")
+			(footprint "OpenMice:Raytac_MDBT50Q")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:Raytac_MDBT50Q")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "U1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c579c1a9-d21b-5a6a-9bab-11e2f7762ce7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "17")
+						)
+						(pin
+							(num "18")
+						)
+						(pin
+							(num "19")
+						)
+						(pin
+							(num "20")
+						)
+						(pin
+							(num "21")
+						)
+						(pin
+							(num "22")
+						)
+						(pin
+							(num "23")
+						)
+						(pin
+							(num "24")
+						)
+						(pin
+							(num "25")
+						)
+						(pin
+							(num "26")
+						)
+						(pin
+							(num "27")
+						)
+						(pin
+							(num "28")
+						)
+						(pin
+							(num "29")
+						)
+						(pin
+							(num "30")
+						)
+						(pin
+							(num "31")
+						)
+						(pin
+							(num "32")
+						)
+						(pin
+							(num "33")
+						)
+						(pin
+							(num "34")
+						)
+						(pin
+							(num "35")
+						)
+						(pin
+							(num "36")
+						)
+						(pin
+							(num "37")
+						)
+						(pin
+							(num "38")
+						)
+						(pin
+							(num "39")
+						)
+						(pin
+							(num "40")
+						)
+						(pin
+							(num "41")
+						)
+						(pin
+							(num "42")
+						)
+						(pin
+							(num "43")
+						)
+						(pin
+							(num "44")
+						)
+						(pin
+							(num "45")
+						)
+						(pin
+							(num "46")
+						)
+						(pin
+							(num "47")
+						)
+						(pin
+							(num "48")
+						)
+						(pin
+							(num "49")
+						)
+						(pin
+							(num "50")
+						)
+						(pin
+							(num "51")
+						)
+						(pin
+							(num "52")
+						)
+						(pin
+							(num "53")
+						)
+						(pin
+							(num "54")
+						)
+						(pin
+							(num "55")
+						)
+						(pin
+							(num "56")
+						)
+						(pin
+							(num "57")
+						)
+						(pin
+							(num "58")
+						)
+						(pin
+							(num "59")
+						)
+						(pin
+							(num "60")
+						)
+						(pin
+							(num "61")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "USBLC6-2SC6")
+			(footprint "OpenMice:SOT-23-6")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:SOT-23-6")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "U2")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c4b6f76a-966e-5d6d-bb71-8ea2e9d5d6ad")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "TLV70030DDCR")
+			(footprint "OpenMice:SOT-23-5")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:SOT-23-5")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "U3")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d660c32c-0cf7-5e51-bd1d-e34c7a467bb0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Y1")
+			(value "32.768kHz 12.5pF ABS07")
+			(footprint "OpenMice:Crystal_SMD_3215-2Pin_3.2x1.5mm")
+			(fields
+				(field
+					(name "Footprint") "OpenMice:Crystal_SMD_3215-2Pin_3.2x1.5mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "OpenMice")
+				(part "Y1")
+				(description "")
+			)
+			(property
+				(name "Sheetname")
+				(value "receiver")
+			)
+			(property
+				(name "Sheetfile")
+				(value "receiver.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "10da63f3-7a2b-5676-a4eb-91658f9cfec9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "OpenMice")
+			(part "C1")
+			(fields
+				(field
+					(name "Reference") "C1")
+				(field
+					(name "Value") "1uF 10V X7R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C2")
+			(fields
+				(field
+					(name "Reference") "C2")
+				(field
+					(name "Value") "4.7uF 6.3V X5R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C3")
+			(fields
+				(field
+					(name "Reference") "C3")
+				(field
+					(name "Value") "100nF 10V X7R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C4")
+			(fields
+				(field
+					(name "Reference") "C4")
+				(field
+					(name "Value") "100nF 10V X7R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C5")
+			(fields
+				(field
+					(name "Reference") "C5")
+				(field
+					(name "Value") "1uF 10V X7R")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C6")
+			(fields
+				(field
+					(name "Reference") "C6")
+				(field
+					(name "Value") "18pF C0G (tune)")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "C7")
+			(fields
+				(field
+					(name "Reference") "C7")
+				(field
+					(name "Value") "18pF C0G (tune)")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "J1")
+			(fields
+				(field
+					(name "Reference") "J1")
+				(field
+					(name "Value") "USB-C HRO TYPE-C-31-M-12")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "A1")
+					(name "A1")
+					(type "passive")
+				)
+				(pin
+					(num "A4")
+					(name "A4")
+					(type "passive")
+				)
+				(pin
+					(num "A5")
+					(name "A5")
+					(type "passive")
+				)
+				(pin
+					(num "A6")
+					(name "A6")
+					(type "passive")
+				)
+				(pin
+					(num "A7")
+					(name "A7")
+					(type "passive")
+				)
+				(pin
+					(num "A8")
+					(name "A8")
+					(type "passive")
+				)
+				(pin
+					(num "A9")
+					(name "A9")
+					(type "passive")
+				)
+				(pin
+					(num "A12")
+					(name "A12")
+					(type "passive")
+				)
+				(pin
+					(num "B1")
+					(name "B1")
+					(type "passive")
+				)
+				(pin
+					(num "B4")
+					(name "B4")
+					(type "passive")
+				)
+				(pin
+					(num "B5")
+					(name "B5")
+					(type "passive")
+				)
+				(pin
+					(num "B6")
+					(name "B6")
+					(type "passive")
+				)
+				(pin
+					(num "B7")
+					(name "B7")
+					(type "passive")
+				)
+				(pin
+					(num "B8")
+					(name "B8")
+					(type "passive")
+				)
+				(pin
+					(num "B9")
+					(name "B9")
+					(type "passive")
+				)
+				(pin
+					(num "B12")
+					(name "B12")
+					(type "passive")
+				)
+				(pin
+					(num "S1")
+					(name "S1")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "J2")
+			(fields
+				(field
+					(name "Reference") "J2")
+				(field
+					(name "Value") "SWD: VDD / SWDIO / SWDCLK / GND / RESET")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "4")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "5")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "R1")
+			(fields
+				(field
+					(name "Reference") "R1")
+				(field
+					(name "Value") "5.1k 1%")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "R2")
+			(fields
+				(field
+					(name "Reference") "R2")
+				(field
+					(name "Value") "5.1k 1%")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "R3")
+			(fields
+				(field
+					(name "Reference") "R3")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "SW1")
+			(fields
+				(field
+					(name "Reference") "SW1")
+				(field
+					(name "Value") "PAIR TL3342")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "SW2")
+			(fields
+				(field
+					(name "Reference") "SW2")
+				(field
+					(name "Value") "RESET TL3342")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "U1")
+			(fields
+				(field
+					(name "Reference") "U1")
+				(field
+					(name "Value") "MDBT50Q-1MV2")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "P1.10")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "P1.11")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "P1.12")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "P1.13")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "P1.14")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "P1.15")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "P0.03/AIN1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "P0.29/AIN5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "P0.02/AIN0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "12")
+					(name "P0.31/AIN7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "13")
+					(name "P0.28/AIN4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "14")
+					(name "P0.30/AIN6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "16")
+					(name "P0.27")
+					(type "bidirectional")
+				)
+				(pin
+					(num "17")
+					(name "XL1/P0.00")
+					(type "bidirectional")
+				)
+				(pin
+					(num "18")
+					(name "XL2/P0.01")
+					(type "bidirectional")
+				)
+				(pin
+					(num "19")
+					(name "P0.26")
+					(type "bidirectional")
+				)
+				(pin
+					(num "20")
+					(name "P0.04/AIN2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "21")
+					(name "P0.05/AIN3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "22")
+					(name "P0.06")
+					(type "bidirectional")
+				)
+				(pin
+					(num "23")
+					(name "TRACECLK/P0.07")
+					(type "bidirectional")
+				)
+				(pin
+					(num "24")
+					(name "P0.08")
+					(type "bidirectional")
+				)
+				(pin
+					(num "25")
+					(name "P1.08")
+					(type "bidirectional")
+				)
+				(pin
+					(num "26")
+					(name "TRACEDATA3/P1.09")
+					(type "bidirectional")
+				)
+				(pin
+					(num "27")
+					(name "TRACEDATA2/P0.11")
+					(type "bidirectional")
+				)
+				(pin
+					(num "28")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "29")
+					(name "TRACEDATA1/P0.12")
+					(type "bidirectional")
+				)
+				(pin
+					(num "30")
+					(name "VDDH")
+					(type "power_in")
+				)
+				(pin
+					(num "31")
+					(name "DCCH")
+					(type "power_out")
+				)
+				(pin
+					(num "32")
+					(name "VBUS")
+					(type "power_in")
+				)
+				(pin
+					(num "33")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "34")
+					(name "D-")
+					(type "bidirectional")
+				)
+				(pin
+					(num "35")
+					(name "D+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "36")
+					(name "P0.14")
+					(type "bidirectional")
+				)
+				(pin
+					(num "37")
+					(name "P0.13")
+					(type "bidirectional")
+				)
+				(pin
+					(num "38")
+					(name "P0.16")
+					(type "bidirectional")
+				)
+				(pin
+					(num "39")
+					(name "P0.15")
+					(type "bidirectional")
+				)
+				(pin
+					(num "40")
+					(name "~RESET~/P0.18")
+					(type "bidirectional")
+				)
+				(pin
+					(num "41")
+					(name "P0.17")
+					(type "bidirectional")
+				)
+				(pin
+					(num "42")
+					(name "P0.19")
+					(type "bidirectional")
+				)
+				(pin
+					(num "43")
+					(name "P0.21")
+					(type "bidirectional")
+				)
+				(pin
+					(num "44")
+					(name "P0.20")
+					(type "bidirectional")
+				)
+				(pin
+					(num "45")
+					(name "P0.23")
+					(type "bidirectional")
+				)
+				(pin
+					(num "46")
+					(name "P0.22")
+					(type "bidirectional")
+				)
+				(pin
+					(num "47")
+					(name "TRACEDATA0/P1.00")
+					(type "bidirectional")
+				)
+				(pin
+					(num "48")
+					(name "P0.24")
+					(type "bidirectional")
+				)
+				(pin
+					(num "49")
+					(name "P0.25")
+					(type "bidirectional")
+				)
+				(pin
+					(num "50")
+					(name "P1.02")
+					(type "bidirectional")
+				)
+				(pin
+					(num "51")
+					(name "SWDIO")
+					(type "bidirectional")
+				)
+				(pin
+					(num "52")
+					(name "P0.09/NFC1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "53")
+					(name "SWDCLK")
+					(type "input")
+				)
+				(pin
+					(num "54")
+					(name "P0.10/NFC2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "55")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "56")
+					(name "P1.04")
+					(type "bidirectional")
+				)
+				(pin
+					(num "57")
+					(name "P1.06")
+					(type "bidirectional")
+				)
+				(pin
+					(num "58")
+					(name "P1.07")
+					(type "bidirectional")
+				)
+				(pin
+					(num "59")
+					(name "P1.05")
+					(type "bidirectional")
+				)
+				(pin
+					(num "60")
+					(name "P1.03")
+					(type "bidirectional")
+				)
+				(pin
+					(num "61")
+					(name "P1.01")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "U2")
+			(fields
+				(field
+					(name "Reference") "U2")
+				(field
+					(name "Value") "USBLC6-2SC6")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "4")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "5")
+					(type "passive")
+				)
+				(pin
+					(num "6")
+					(name "6")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "U3")
+			(fields
+				(field
+					(name "Reference") "U3")
+				(field
+					(name "Value") "TLV70030DDCR")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "4")
+					(type "no_connect")
+				)
+				(pin
+					(num "5")
+					(name "5")
+					(type "power_out")
+				)
+			)
+		)
+		(libpart
+			(lib "OpenMice")
+			(part "Y1")
+			(fields
+				(field
+					(name "Reference") "Y1")
+				(field
+					(name "Value") "32.768kHz 12.5pF ABS07")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "OpenMice")
+			(uri "${KIPRJMOD}/OpenMice.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/CC1")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "A5")
+				(pinfunction "A5_A5")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "/CC2")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "B5")
+				(pinfunction "B5_B5")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "/GND")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C6")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C7")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "A1")
+				(pinfunction "A1_A1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "A12")
+				(pinfunction "A12_A12")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B1")
+				(pinfunction "B1_B1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B12")
+				(pinfunction "B12_B12")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "S1")
+				(pinfunction "S1_S1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J2")
+				(pin "4")
+				(pinfunction "4_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "15")
+				(pinfunction "GND_15")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "33")
+				(pinfunction "GND_33")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "55")
+				(pinfunction "GND_55")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "4")
+			(name "/LF_XL1")
+			(class "Default")
+			(node
+				(ref "C6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "17")
+				(pinfunction "XL1/P0.00_17")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Y1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "5")
+			(name "/LF_XL2")
+			(class "Default")
+			(node
+				(ref "C7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "18")
+				(pinfunction "XL2/P0.01_18")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Y1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "6")
+			(name "/MCU_RESET")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "5")
+				(pinfunction "5_5")
+				(pintype "passive")
+			)
+			(node
+				(ref "R3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "SW2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "40")
+				(pinfunction "~RESET~/P0.18_40")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "7")
+			(name "/PAIR")
+			(class "Default")
+			(node
+				(ref "SW1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "16")
+				(pinfunction "P0.27_16")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "8")
+			(name "/SWDCLK")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "53")
+				(pinfunction "SWDCLK_53")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "9")
+			(name "/SWDIO")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "51")
+				(pinfunction "SWDIO_51")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "10")
+			(name "/USB_DM")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "A7")
+				(pinfunction "A7_A7")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B7")
+				(pinfunction "B7_B7")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "34")
+				(pinfunction "D-_34")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "4_4")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "11")
+			(name "/USB_DP")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "A6")
+				(pinfunction "A6_A6")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B6")
+				(pinfunction "B6_B6")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "35")
+				(pinfunction "D+_35")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "6")
+				(pinfunction "6_6")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "12")
+			(name "/USB_VBUS")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "A4")
+				(pinfunction "A4_A4")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "A9")
+				(pinfunction "A9_A9")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B4")
+				(pinfunction "B4_B4")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "B9")
+				(pinfunction "B9_B9")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "32")
+				(pinfunction "VBUS_32")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "5")
+				(pinfunction "5_5")
+				(pintype "passive")
+			)
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "input")
+			)
+		)
+		(net
+			(code "13")
+			(name "/VDD_3V0")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "28")
+				(pinfunction "VDD_28")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "30")
+				(pinfunction "VDDH_30")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U3")
+				(pin "5")
+				(pinfunction "5_5")
+				(pintype "power_out")
+			)
+		)
+		(net
+			(code "14")
+			(name "unconnected-(J1-PadA8)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "A8")
+				(pinfunction "A8_A8")
+				(pintype "passive+no_connect")
+			)
+		)
+		(net
+			(code "15")
+			(name "unconnected-(J1-PadB8)")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "B8")
+				(pinfunction "B8_B8")
+				(pintype "passive+no_connect")
+			)
+		)
+		(net
+			(code "16")
+			(name "unconnected-(U1-DCCH-Pad31)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "31")
+				(pinfunction "DCCH_31")
+				(pintype "power_out+no_connect")
+			)
+		)
+		(net
+			(code "17")
+			(name "unconnected-(U1-P0.02{slash}AIN0-Pad11)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "11")
+				(pinfunction "P0.02/AIN0_11")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "18")
+			(name "unconnected-(U1-P0.03{slash}AIN1-Pad9)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "9")
+				(pinfunction "P0.03/AIN1_9")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "19")
+			(name "unconnected-(U1-P0.04{slash}AIN2-Pad20)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "20")
+				(pinfunction "P0.04/AIN2_20")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "20")
+			(name "unconnected-(U1-P0.05{slash}AIN3-Pad21)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "21")
+				(pinfunction "P0.05/AIN3_21")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "21")
+			(name "unconnected-(U1-P0.06-Pad22)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "22")
+				(pinfunction "P0.06_22")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "22")
+			(name "unconnected-(U1-P0.08-Pad24)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "24")
+				(pinfunction "P0.08_24")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "23")
+			(name "unconnected-(U1-P0.09{slash}NFC1-Pad52)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "52")
+				(pinfunction "P0.09/NFC1_52")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "24")
+			(name "unconnected-(U1-P0.10{slash}NFC2-Pad54)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "54")
+				(pinfunction "P0.10/NFC2_54")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "25")
+			(name "unconnected-(U1-P0.13-Pad37)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "37")
+				(pinfunction "P0.13_37")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "26")
+			(name "unconnected-(U1-P0.14-Pad36)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "36")
+				(pinfunction "P0.14_36")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "27")
+			(name "unconnected-(U1-P0.15-Pad39)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "39")
+				(pinfunction "P0.15_39")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "28")
+			(name "unconnected-(U1-P0.16-Pad38)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "38")
+				(pinfunction "P0.16_38")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "29")
+			(name "unconnected-(U1-P0.17-Pad41)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "41")
+				(pinfunction "P0.17_41")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "30")
+			(name "unconnected-(U1-P0.19-Pad42)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "42")
+				(pinfunction "P0.19_42")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "31")
+			(name "unconnected-(U1-P0.20-Pad44)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "44")
+				(pinfunction "P0.20_44")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "32")
+			(name "unconnected-(U1-P0.21-Pad43)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "43")
+				(pinfunction "P0.21_43")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "33")
+			(name "unconnected-(U1-P0.22-Pad46)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "46")
+				(pinfunction "P0.22_46")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "34")
+			(name "unconnected-(U1-P0.23-Pad45)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "45")
+				(pinfunction "P0.23_45")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "35")
+			(name "unconnected-(U1-P0.24-Pad48)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "48")
+				(pinfunction "P0.24_48")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "36")
+			(name "unconnected-(U1-P0.25-Pad49)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "49")
+				(pinfunction "P0.25_49")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "37")
+			(name "unconnected-(U1-P0.26-Pad19)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "19")
+				(pinfunction "P0.26_19")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "38")
+			(name "unconnected-(U1-P0.28{slash}AIN4-Pad13)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "13")
+				(pinfunction "P0.28/AIN4_13")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "39")
+			(name "unconnected-(U1-P0.29{slash}AIN5-Pad10)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "10")
+				(pinfunction "P0.29/AIN5_10")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "40")
+			(name "unconnected-(U1-P0.30{slash}AIN6-Pad14)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "14")
+				(pinfunction "P0.30/AIN6_14")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "41")
+			(name "unconnected-(U1-P0.31{slash}AIN7-Pad12)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "12")
+				(pinfunction "P0.31/AIN7_12")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "42")
+			(name "unconnected-(U1-P1.01-Pad61)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "61")
+				(pinfunction "P1.01_61")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "43")
+			(name "unconnected-(U1-P1.02-Pad50)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "50")
+				(pinfunction "P1.02_50")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "44")
+			(name "unconnected-(U1-P1.03-Pad60)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "60")
+				(pinfunction "P1.03_60")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "45")
+			(name "unconnected-(U1-P1.04-Pad56)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "56")
+				(pinfunction "P1.04_56")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "46")
+			(name "unconnected-(U1-P1.05-Pad59)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "59")
+				(pinfunction "P1.05_59")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "47")
+			(name "unconnected-(U1-P1.06-Pad57)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "57")
+				(pinfunction "P1.06_57")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "48")
+			(name "unconnected-(U1-P1.07-Pad58)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "58")
+				(pinfunction "P1.07_58")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "49")
+			(name "unconnected-(U1-P1.08-Pad25)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "25")
+				(pinfunction "P1.08_25")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "50")
+			(name "unconnected-(U1-P1.10-Pad3)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "P1.10_3")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "51")
+			(name "unconnected-(U1-P1.11-Pad4)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "P1.11_4")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "52")
+			(name "unconnected-(U1-P1.12-Pad5)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "P1.12_5")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "53")
+			(name "unconnected-(U1-P1.13-Pad6)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "P1.13_6")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "54")
+			(name "unconnected-(U1-P1.14-Pad7)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "P1.14_7")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "55")
+			(name "unconnected-(U1-P1.15-Pad8)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "P1.15_8")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "56")
+			(name "unconnected-(U1-TRACECLK{slash}P0.07-Pad23)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "23")
+				(pinfunction "TRACECLK/P0.07_23")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "57")
+			(name "unconnected-(U1-TRACEDATA0{slash}P1.00-Pad47)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "47")
+				(pinfunction "TRACEDATA0/P1.00_47")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "58")
+			(name "unconnected-(U1-TRACEDATA1{slash}P0.12-Pad29)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "29")
+				(pinfunction "TRACEDATA1/P0.12_29")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "59")
+			(name "unconnected-(U1-TRACEDATA2{slash}P0.11-Pad27)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "27")
+				(pinfunction "TRACEDATA2/P0.11_27")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "60")
+			(name "unconnected-(U1-TRACEDATA3{slash}P1.09-Pad26)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "26")
+				(pinfunction "TRACEDATA3/P1.09_26")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "61")
+			(name "unconnected-(U3-Pad4)")
+			(class "Default")
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "4_4")
+				(pintype "no_connect")
+			)
+		)
+	)
+)

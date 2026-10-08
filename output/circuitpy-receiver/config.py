@@ -46,12 +46,16 @@ def checksum(data):
     return result
 
 class Store:
-    """First 1024 NVM bytes are reserved. Commit marker is written last."""
-    SLOT = 512
+    """Separate 4KiB nRF52840 erase pages; commit marker is written last.
+
+    CircuitPython rewrites an entire erase page for each bytearray write.
+    Sharing an erase page would invalidate the last-good slot on a power cut.
+    """
+    SLOT = 4096
     HEADER = 14
     def __init__(self, nvm):
         if len(nvm) < self.SLOT * 2:
-            raise ValueError("Need 1024 NVM bytes")
+            raise ValueError("Need 8192 NVM bytes")
         self.nvm = nvm
         self.active = -1
         self.generation = 0
@@ -61,7 +65,7 @@ class Store:
         for slot in range(2):
             offset = slot * self.SLOT
             data = bytes(self.nvm[offset:offset+self.SLOT])
-            if data[:4] != b"OMC1":
+            if data[:4] != b"OMC2":
                 continue
             generation, size, expected = struct.unpack("<IHI", data[4:14])
             if size > self.SLOT-self.HEADER:
@@ -87,7 +91,7 @@ class Store:
         self.nvm[offset:offset+4] = b"\0\0\0\0"
         body = struct.pack("<IHI", generation, len(payload), checksum(payload)) + payload
         self.nvm[offset+4:offset+4+len(body)] = body
-        self.nvm[offset:offset+4] = b"OMC1"
+        self.nvm[offset:offset+4] = b"OMC2"
         self.active, self.generation = slot, generation
 
 class Lines:
