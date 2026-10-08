@@ -1,0 +1,4 @@
+Install the custom OpenMice CircuitPython runtime first.
+Copy these files to CIRCUITPY, plus adafruit_ble and its bundle dependencies in lib/.
+Power-cycle after changing boot.py.
+See docs/SETUP.md. Native runtime and radio behavior are not hardware-verified.

@@ -1,0 +1,673 @@
+{
+  "name": "receiver",
+  "width_mm": 20,
+  "height_mm": 44,
+  "status": "unrouted placement draft",
+  "parts": [
+    {
+      "ref": "U1",
+      "value": "MDBT50Q-1MV2",
+      "footprint": "Raytac_MDBT50Q",
+      "x": 10,
+      "y": 36,
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "3": {
+          "name": "P1.10",
+          "net": null
+        },
+        "4": {
+          "name": "P1.11",
+          "net": null
+        },
+        "5": {
+          "name": "P1.12",
+          "net": null
+        },
+        "6": {
+          "name": "P1.13",
+          "net": null
+        },
+        "7": {
+          "name": "P1.14",
+          "net": null
+        },
+        "8": {
+          "name": "P1.15",
+          "net": null
+        },
+        "9": {
+          "name": "P0.03/AIN1",
+          "net": null
+        },
+        "10": {
+          "name": "P0.29/AIN5",
+          "net": null
+        },
+        "11": {
+          "name": "P0.02/AIN0",
+          "net": null
+        },
+        "12": {
+          "name": "P0.31/AIN7",
+          "net": null
+        },
+        "13": {
+          "name": "P0.28/AIN4",
+          "net": null
+        },
+        "14": {
+          "name": "P0.30/AIN6",
+          "net": null
+        },
+        "15": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "16": {
+          "name": "P0.27",
+          "net": "PAIR"
+        },
+        "17": {
+          "name": "XL1/P0.00",
+          "net": "LF_XL1"
+        },
+        "18": {
+          "name": "XL2/P0.01",
+          "net": "LF_XL2"
+        },
+        "19": {
+          "name": "P0.26",
+          "net": null
+        },
+        "20": {
+          "name": "P0.04/AIN2",
+          "net": null
+        },
+        "21": {
+          "name": "P0.05/AIN3",
+          "net": null
+        },
+        "22": {
+          "name": "P0.06",
+          "net": null
+        },
+        "23": {
+          "name": "TRACECLK/P0.07",
+          "net": null
+        },
+        "24": {
+          "name": "P0.08",
+          "net": null
+        },
+        "25": {
+          "name": "P1.08",
+          "net": null
+        },
+        "26": {
+          "name": "TRACEDATA3/P1.09",
+          "net": null
+        },
+        "27": {
+          "name": "TRACEDATA2/P0.11",
+          "net": null
+        },
+        "28": {
+          "name": "VDD",
+          "net": "VDD_3V0"
+        },
+        "29": {
+          "name": "TRACEDATA1/P0.12",
+          "net": null
+        },
+        "30": {
+          "name": "VDDH",
+          "net": "VDD_3V0"
+        },
+        "31": {
+          "name": "DCCH",
+          "net": null
+        },
+        "32": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "33": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "34": {
+          "name": "D-",
+          "net": "USB_DM"
+        },
+        "35": {
+          "name": "D+",
+          "net": "USB_DP"
+        },
+        "36": {
+          "name": "P0.14",
+          "net": null
+        },
+        "37": {
+          "name": "P0.13",
+          "net": null
+        },
+        "38": {
+          "name": "P0.16",
+          "net": null
+        },
+        "39": {
+          "name": "P0.15",
+          "net": null
+        },
+        "40": {
+          "name": "~RESET~/P0.18",
+          "net": "MCU_RESET"
+        },
+        "41": {
+          "name": "P0.17",
+          "net": null
+        },
+        "42": {
+          "name": "P0.19",
+          "net": null
+        },
+        "43": {
+          "name": "P0.21",
+          "net": null
+        },
+        "44": {
+          "name": "P0.20",
+          "net": null
+        },
+        "45": {
+          "name": "P0.23",
+          "net": null
+        },
+        "46": {
+          "name": "P0.22",
+          "net": null
+        },
+        "47": {
+          "name": "TRACEDATA0/P1.00",
+          "net": null
+        },
+        "48": {
+          "name": "P0.24",
+          "net": null
+        },
+        "49": {
+          "name": "P0.25",
+          "net": null
+        },
+        "50": {
+          "name": "P1.02",
+          "net": null
+        },
+        "51": {
+          "name": "SWDIO",
+          "net": "SWDIO"
+        },
+        "52": {
+          "name": "P0.09/NFC1",
+          "net": null
+        },
+        "53": {
+          "name": "SWDCLK",
+          "net": "SWDCLK"
+        },
+        "54": {
+          "name": "P0.10/NFC2",
+          "net": null
+        },
+        "55": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "56": {
+          "name": "P1.04",
+          "net": null
+        },
+        "57": {
+          "name": "P1.06",
+          "net": null
+        },
+        "58": {
+          "name": "P1.07",
+          "net": null
+        },
+        "59": {
+          "name": "P1.05",
+          "net": null
+        },
+        "60": {
+          "name": "P1.03",
+          "net": null
+        },
+        "61": {
+          "name": "P1.01",
+          "net": null
+        }
+      },
+      "group": "controller",
+      "rotation": 180
+    },
+    {
+      "ref": "J1",
+      "value": "USB-C HRO TYPE-C-31-M-12",
+      "footprint": "USB_C",
+      "x": 10,
+      "y": 3.6,
+      "pins": {
+        "": {
+          "name": "",
+          "net": null
+        },
+        "A1": {
+          "name": "A1",
+          "net": "GND"
+        },
+        "A12": {
+          "name": "A12",
+          "net": "GND"
+        },
+        "A4": {
+          "name": "A4",
+          "net": "USB_VBUS"
+        },
+        "A5": {
+          "name": "A5",
+          "net": "CC1"
+        },
+        "A6": {
+          "name": "A6",
+          "net": "USB_DP"
+        },
+        "A7": {
+          "name": "A7",
+          "net": "USB_DM"
+        },
+        "A8": {
+          "name": "A8",
+          "net": null
+        },
+        "A9": {
+          "name": "A9",
+          "net": "USB_VBUS"
+        },
+        "B1": {
+          "name": "B1",
+          "net": "GND"
+        },
+        "B12": {
+          "name": "B12",
+          "net": "GND"
+        },
+        "B4": {
+          "name": "B4",
+          "net": "USB_VBUS"
+        },
+        "B5": {
+          "name": "B5",
+          "net": "CC2"
+        },
+        "B6": {
+          "name": "B6",
+          "net": "USB_DP"
+        },
+        "B7": {
+          "name": "B7",
+          "net": "USB_DM"
+        },
+        "B8": {
+          "name": "B8",
+          "net": null
+        },
+        "B9": {
+          "name": "B9",
+          "net": "USB_VBUS"
+        },
+        "S1": {
+          "name": "S1",
+          "net": "GND"
+        }
+      },
+      "group": "USB"
+    },
+    {
+      "ref": "U2",
+      "value": "USBLC6-2SC6",
+      "footprint": "SOT-23-6",
+      "x": 16,
+      "y": 7.6,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_DP"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        },
+        "3": {
+          "name": "3",
+          "net": "USB_DM"
+        },
+        "4": {
+          "name": "4",
+          "net": "USB_DM"
+        },
+        "5": {
+          "name": "5",
+          "net": "USB_VBUS"
+        },
+        "6": {
+          "name": "6",
+          "net": "USB_DP"
+        }
+      },
+      "group": "USB"
+    },
+    {
+      "ref": "R1",
+      "value": "5.1k 1%",
+      "footprint": "R_0603_1608Metric",
+      "x": 4,
+      "y": 7.6,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "CC1"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "USB"
+    },
+    {
+      "ref": "R2",
+      "value": "5.1k 1%",
+      "footprint": "R_0603_1608Metric",
+      "x": 7,
+      "y": 7.6,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "CC2"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "USB"
+    },
+    {
+      "ref": "U3",
+      "value": "TLV70030DDCR",
+      "footprint": "SOT-23-5",
+      "x": 5,
+      "y": 13,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        },
+        "3": {
+          "name": "3",
+          "net": "USB_VBUS"
+        },
+        "4": {
+          "name": "4",
+          "net": null
+        },
+        "5": {
+          "name": "5",
+          "net": "VDD_3V0"
+        }
+      },
+      "group": "power"
+    },
+    {
+      "ref": "C1",
+      "value": "1uF 10V X7R",
+      "footprint": "C_0603_1608Metric",
+      "x": 3,
+      "y": 16,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "power"
+    },
+    {
+      "ref": "C2",
+      "value": "4.7uF 6.3V X5R",
+      "footprint": "C_0603_1608Metric",
+      "x": 7,
+      "y": 16,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VDD_3V0"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "power"
+    },
+    {
+      "ref": "C3",
+      "value": "100nF 10V X7R",
+      "footprint": "C_0603_1608Metric",
+      "x": 10,
+      "y": 27,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VDD_3V0"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controller"
+    },
+    {
+      "ref": "C4",
+      "value": "100nF 10V X7R",
+      "footprint": "C_0603_1608Metric",
+      "x": 13,
+      "y": 27,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VDD_3V0"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controller"
+    },
+    {
+      "ref": "C5",
+      "value": "1uF 10V X7R",
+      "footprint": "C_0603_1608Metric",
+      "x": 13,
+      "y": 10.6,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "USB"
+    },
+    {
+      "ref": "Y1",
+      "value": "32.768kHz 12.5pF ABS07",
+      "footprint": "Crystal_SMD_3215-2Pin_3.2x1.5mm",
+      "x": 8,
+      "y": 25,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LF_XL1"
+        },
+        "2": {
+          "name": "2",
+          "net": "LF_XL2"
+        }
+      },
+      "group": "controller"
+    },
+    {
+      "ref": "C6",
+      "value": "18pF C0G (tune)",
+      "footprint": "C_0603_1608Metric",
+      "x": 6,
+      "y": 23,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LF_XL1"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controller"
+    },
+    {
+      "ref": "C7",
+      "value": "18pF C0G (tune)",
+      "footprint": "C_0603_1608Metric",
+      "x": 10,
+      "y": 23,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LF_XL2"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controller"
+    },
+    {
+      "ref": "J2",
+      "value": "SWD: VDD / SWDIO / SWDCLK / GND / RESET",
+      "footprint": "PinHeader_1x05_P2.54mm_Vertical",
+      "x": 2,
+      "y": 23,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VDD_3V0"
+        },
+        "2": {
+          "name": "2",
+          "net": "SWDIO"
+        },
+        "3": {
+          "name": "3",
+          "net": "SWDCLK"
+        },
+        "4": {
+          "name": "4",
+          "net": "GND"
+        },
+        "5": {
+          "name": "5",
+          "net": "MCU_RESET"
+        }
+      },
+      "group": "debug"
+    },
+    {
+      "ref": "SW1",
+      "value": "PAIR TL3342",
+      "footprint": "SW_SPST_TL3342",
+      "x": 15,
+      "y": 14,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "PAIR"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controls"
+    },
+    {
+      "ref": "SW2",
+      "value": "RESET TL3342",
+      "footprint": "SW_SPST_TL3342",
+      "x": 15,
+      "y": 19,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "MCU_RESET"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "group": "controls"
+    },
+    {
+      "ref": "R3",
+      "value": "10k",
+      "footprint": "R_0603_1608Metric",
+      "x": 16,
+      "y": 23,
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VDD_3V0"
+        },
+        "2": {
+          "name": "2",
+          "net": "MCU_RESET"
+        }
+      },
+      "group": "controller"
+    }
+  ]
+}

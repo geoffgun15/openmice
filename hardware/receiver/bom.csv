@@ -1,0 +1,19 @@
+Reference,Value / part,Footprint,X mm,Y mm,Block
+U1,MDBT50Q-1MV2,Raytac_MDBT50Q,10,36,controller
+J1,USB-C HRO TYPE-C-31-M-12,USB_C,10,3.6,USB
+U2,USBLC6-2SC6,SOT-23-6,16,7.6,USB
+R1,5.1k 1%,R_0603_1608Metric,4,7.6,USB
+R2,5.1k 1%,R_0603_1608Metric,7,7.6,USB
+U3,TLV70030DDCR,SOT-23-5,5,13,power
+C1,1uF 10V X7R,C_0603_1608Metric,3,16,power
+C2,4.7uF 6.3V X5R,C_0603_1608Metric,7,16,power
+C3,100nF 10V X7R,C_0603_1608Metric,10,27,controller
+C4,100nF 10V X7R,C_0603_1608Metric,13,27,controller
+C5,1uF 10V X7R,C_0603_1608Metric,13,10.6,USB
+Y1,32.768kHz 12.5pF ABS07,Crystal_SMD_3215-2Pin_3.2x1.5mm,8,25,controller
+C6,18pF C0G (tune),C_0603_1608Metric,6,23,controller
+C7,18pF C0G (tune),C_0603_1608Metric,10,23,controller
+J2,SWD: VDD / SWDIO / SWDCLK / GND / RESET,PinHeader_1x05_P2.54mm_Vertical,2,23,debug
+SW1,PAIR TL3342,SW_SPST_TL3342,15,14,controls
+SW2,RESET TL3342,SW_SPST_TL3342,15,19,controls
+R3,10k,R_0603_1608Metric,16,23,controller

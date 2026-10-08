@@ -1,0 +1,22 @@
+{
+  "SCLK": "P0_14",
+  "MOSI": "P0_13",
+  "MISO": "P0_15",
+  "NCS": "P0_16",
+  "SENSOR_RESET": "P0_17",
+  "MOTION": "P0_11",
+  "BUTTONS": [
+    "P0_20",
+    "P0_21",
+    "P0_23",
+    "P0_22",
+    "P0_24"
+  ],
+  "ENCODER": [
+    "P0_25",
+    "P0_26"
+  ],
+  "PAIR": "P0_27",
+  "BATTERY_ADC": "P0_04",
+  "MCU_RESET": "P0_18"
+}

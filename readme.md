@@ -1,79 +1,49 @@
-PAW3395 Mouse Firmware
-This project implements low-latency, robust firmware for a custom USB mouse using the PAW3395 optical sensor on a nice!nano (CircuitPython) board.
+# OpenMice Proto
 
-Features
-One-time SPI configuration at 4 MHz with precise microsecond timing
+Custom PAW3395 rechargeable mouse, USB wireless receiver, and browser configurator.
 
-Motion-ready flag polling and adjustable POLL_INTERVAL for flexible sampling rates
+**A0 is a prototype design package, not a finished hardware release.** Application
+logic has host tests and the editor has a browser demo. Both PCBs are **unrouted
+schematic/placement drafts**. Native runtime/bootloader builds and physical testing
+are outstanding. Do not order PCBs from these drafts.
 
-6-byte motion burst reads (ΔX/ΔY) with sanity checks and up to 3 retries
+| Component | Included |
+|---|---|
+| Mouse | Bare PAW3395, nRF52840 module, 1S LiPo charger/power path, five buttons + scroll |
+| Receiver | Custom nRF52840 board, USB-C, BLE-to-USB HID and configuration bridge |
+| Firmware | Corrected sensor startup/ID/timing, 16-bit motion, DPI, bindings, persistence |
+| Editor | Web Serial, DPI, mouse/keyboard bindings, Apply/Save, import/export and demo |
 
-Automatic sensor reset/recovery on timeouts or bus errors
+The radio modules are soldered components on custom PCBs; nice!nano is no longer
+used. BLE is the prototype radio; proprietary 1000 Hz wireless is not implemented.
 
-Optional interrupt-driven reads via the PAW3395’s MOTION/IRQ pin
+- [Hardware files and remaining layout work](hardware/README.md)
+- [Setup, protocol and verification](docs/SETUP.md)
+- [Mouse schematic](hardware/mouse/mouse.kicad_sch) / [PCB draft](hardware/mouse/mouse.kicad_pcb)
+- [Receiver schematic](hardware/receiver/receiver.kicad_sch) / [PCB draft](hardware/receiver/receiver.kicad_pcb)
+- [Browser editor](web/index.html)
 
-Product ID verification to detect wiring or sensor mismatches
+## Preview
 
-Hardware Requirements
-nice!nano board running CircuitPython
+```sh
+python -m http.server 8765 --bind 127.0.0.1 --directory web
+```
 
-PAW3395 optical mouse sensor module
+Open http://127.0.0.1:8765/ in desktop Chrome/Edge. Demo mode works without hardware.
+A real connection requires the validated runtime and mouse/receiver.
 
-Optional: push-button or switch wired to the MOTION/IRQ pin for interrupt mode
+## Development
 
-Pin Connections
+```sh
+python -m unittest discover -s tests -v
+node --test web/test.mjs
+python tools/package_firmware.py
+```
 
-nice!nano Pin	PAW3395 Signal
-board.SCK	SCLK
-board.MOSI	SDI
-board.MISO	SDO
-P0_24 (CS)	CS
-P0_23 (IRQ)	MOTION / IRQ
-3.3 V / GND	VCC / GND
-Software Setup
-Install CircuitPython on your nice!nano (v8.x or later recommended).
+`tools/build_hardware.py` regenerates the drafts and overwrites manual edits.
+The original sensor PDF is unchanged. Prototype assumptions: LM19-LSI optics,
+64 x 94 mm mouse outline, external switch/encoder contacts, and a protected
+300 mAh cell with compatible NTC temperature sensing.
 
-Copy main.py to the root of the CIRCUITPY drive.
-
-(Optional) If using interrupt mode, wire MOTION/IRQ to P0_23 and uncomment the IRQ handler in main.py.
-
-Configuration
-At the top of main.py, adjust any of the following constants to suit your needs:
-
-python
-Copy
-Edit
-# Sampling interval between motion-ready checks (in seconds)
-POLL_INTERVAL = 0.001      # e.g. 0.001 = 1 ms
-
-# Chip select pin for SPI (change if P0_24 is unavailable)
-CS_PIN = board.P0_24
-
-# (Optional) IRQ pin for interrupt-driven reads
-IRQ_PIN = board.P0_23
-Usage
-Plug the nice!nano into your host (USB).
-
-Open a serial console (e.g. PuTTY, screen /dev/ttyACM0 115200).
-
-Observe printed motion deltas:
-
-makefile
-Copy
-Edit
-[+] Sensor initialized.
-ΔX: 12, ΔY: -5
-ΔX: 0,  ΔY: 0
-ΔX: 30, ΔY: 15
-(Advanced) Replace the print() calls with adafruit_hid.mouse.Mouse.move(dx, dy) to emulate a real USB-HID mouse.
-
-Troubleshooting
-No output on serial: Verify CS wiring and power rails; check that CircuitPython is loaded.
-
-Stuck on init timeout: Confirm register constants and that the sensor’s power-up reset (0x3A) is supported.
-
-Packet drop symptoms: Tweak POLL_INTERVAL or enable IRQ mode.
-
-License
-This code is released under the MIT License.
-
+Project code: MIT. Vendored KiCad libraries retain their upstream licenses;
+see hardware/README.md. The PixArt PDF retains its original restrictions.

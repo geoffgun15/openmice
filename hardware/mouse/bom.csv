@@ -1,0 +1,52 @@
+Reference,Value / part,Footprint,X mm,Y mm,Block
+U1,MDBT50Q-1MV2,Raytac_MDBT50Q,32,84,controller
+J1,USB-C HRO TYPE-C-31-M-12,USB_C,32,3.6,USB
+U2,USBLC6-2SC6,SOT-23-6,38,7.6,USB
+R1,5.1k 1%,R_0603_1608Metric,26,7.6,USB
+R2,5.1k 1%,R_0603_1608Metric,29,7.6,USB
+U3,TLV70030DDCR,SOT-23-5,13,61,power
+C1,1uF 10V X7R,C_0603_1608Metric,11,64,power
+C2,4.7uF 6.3V X5R,C_0603_1608Metric,15,64,power
+C3,100nF 10V X7R,C_0603_1608Metric,32,75,controller
+C4,100nF 10V X7R,C_0603_1608Metric,35,75,controller
+C5,1uF 10V X7R,C_0603_1608Metric,35,10.6,USB
+Y1,32.768kHz 12.5pF ABS07,Crystal_SMD_3215-2Pin_3.2x1.5mm,30,73,controller
+C6,18pF C0G (tune),C_0603_1608Metric,28,71,controller
+C7,18pF C0G (tune),C_0603_1608Metric,32,71,controller
+J2,SWD: VDD / SWDIO / SWDCLK / GND / RESET,PinHeader_1x05_P2.54mm_Vertical,57,67,debug
+SW1,PAIR TL3342,SW_SPST_TL3342,10,78,controls
+SW2,RESET TL3342,SW_SPST_TL3342,10,84,controls
+R3,10k,R_0603_1608Metric,14,84,controller
+U4,PAW3395DM-T6QU,PAW3395DM_T6QU,32,44,sensor
+U5,TLV70019DDCR,SOT-23-5,46,48,sensor
+C8,1uF 10V X7R,C_0603_1608Metric,47,51,sensor
+C9,10uF 6.3V X5R,C_0805_2012Metric,45,44,sensor
+C10,100nF X7R,C_0603_1608Metric,43,41,sensor
+C11,4.7uF X5R,C_0603_1608Metric,25,35,sensor
+C12,100nF X7R,C_0603_1608Metric,28,35,sensor
+C13,10uF X5R,C_0805_2012Metric,17,45,sensor
+C14,100nF X7R,C_0603_1608Metric,18,48,sensor
+C15,33uF 6.3V X5R,C_0805_2012Metric,42,53,sensor
+R4,5.6R 1%,R_0603_1608Metric,40,52,sensor
+R5,10k,R_0603_1608Metric,50,42,sensor
+U6,BQ24072RGTR,VQFN-16-1EP_3x3mm_P0.5mm_EP1.45x1.45mm,16,14,battery
+J3,Protected 1S 300mAh + 10k NTC (BAT/GND/NTC),JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,6,53,battery
+R6,5.90k 1%,R_0603_1608Metric,11,18,battery
+R7,3.09k 1%,R_0603_1608Metric,14,18,battery
+R8,68k 1%,R_0603_1608Metric,17,18,battery
+C16,1uF 10V X7R,C_0805_2012Metric,16,10,battery
+C17,10uF 6.3V X5R,C_0805_2012Metric,20,17,battery
+C18,10uF 6.3V X5R,C_0805_2012Metric,11,12,battery
+SW3,Power PCM12,SW_SPDT_PCM12,7,63,battery
+R9,100k 1%,R_0603_1608Metric,6,70,battery
+R10,100k 1%,R_0603_1608Metric,9,70,battery
+C19,100nF X7R,C_0603_1608Metric,12,70,battery
+R11,100k,R_0603_1608Metric,9,22,battery
+R12,100k,R_0603_1608Metric,12,22,battery
+J4,Charger status: GND / PGOOD / CHG,PinHeader_1x03_P2.54mm_Vertical,6,26,battery
+J5,BUTTON_LEFT contact,PinHeader_1x02_P2.54mm_Vertical,18,25,controls
+J6,BUTTON_RIGHT contact,PinHeader_1x02_P2.54mm_Vertical,44,25,controls
+J7,BUTTON_MIDDLE contact,PinHeader_1x02_P2.54mm_Vertical,30,20,controls
+J8,BUTTON_BACK contact,PinHeader_1x02_P2.54mm_Vertical,5,39,controls
+J9,BUTTON_FORWARD contact,PinHeader_1x02_P2.54mm_Vertical,5,44,controls
+J10,Encoder: A / GND / B,PinHeader_1x03_P2.54mm_Vertical,27,12,controls
