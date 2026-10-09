@@ -2,9 +2,10 @@
   "assembly-top.png": "c2c5387857980c035cba3d6a0ccc2f4f0019b654d27d47cdbe94c21d197eccdd",
   "assembly-top.svg": "ab70a80016aa6feed6ed33c520180adb5a6df38688afcd3950737293795a8252",
   "board-3d.png": "3cb84a59278048a70619d4a25647a938163969f0fd1920147dbc1f1b2282bcbf",
+  "board-populated-3d.png": "1548b2ded35da7feb9a3efaadc8caede6c31c8b6c5ea08891b30fe26683764cf",
   "bom.csv": "c636cad8813367953e047f2c610fd19e59ffe22676e8efd6785ad36b483fa951",
   "copper-bottom.svg": "a29270fbfd0d1b1e3fe61fb05bcbcb12e2135a6f8a08ad5fa508b0c7cdb3e523",
-  "drc.json": "a3a204eb7036fdc1c116c9405bf00ad4046ce419a2e291844d8fd8c3e4269cce",
+  "drc.json": "5df0ca8e61eeb5e5e0ff34d40762ab08d9b0ddd658c178e4a14995992e48a220",
   "erc.json": "0fc9b4df5486a0e753d88aefd904dd1410372671eea403991ed86cdd661b5db7",
   "fabrication\\FABRICATION.md": "2c932d51c11e9a023a02ed5ecb48f084c18df0c904d0d6060dbb6812d6192234",
   "fabrication\\receiver-B_Cu.gbl": "bf70c01de819e5e1b532fb9a332ea8ff44113a27b35e45e31879a71a64f550b0",
@@ -23,5 +24,6 @@
   "fabrication\\receiver-NPTH.drl": "da3f6affa8e32415316558d6e870f872173caaa5f47938619e6216ad6f99a1a3",
   "fabrication\\receiver-PTH-drl_map.svg": "714377e24f512b5385881326c4663f96e1287c2cebcfbd0be3e00c99b61cd493",
   "fabrication\\receiver-PTH.drl": "b2ae4191fd46c729ff4028bad037502a60a8b4f516f3ccf070a32c2f33ff0e6d",
-  "placement.csv": "a4fc057a76b793e386e0896295a653af0f21b06ade77016d21d208e140b54487"
+  "placement.csv": "a4fc057a76b793e386e0896295a653af0f21b06ade77016d21d208e140b54487",
+  "render-models.json": "36af7785186a5acd73a29c180748bc2e11778b76cc50fb5ba579e115b9cff2df"
 }

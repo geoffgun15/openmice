@@ -2,9 +2,10 @@
   "assembly-top.png": "77c885da1977b6896733a5e468cec27a1a1708613b67dc4e3d2a74653e8ec4e3",
   "assembly-top.svg": "ab83af143f4544db92a5198e82c63ccdc91efd36472964dad6edfc248fe36cd2",
   "board-3d.png": "e0ff48e21ad33e4b00e1bed540561fbd5d826fa13e2fc3166525d203be1df742",
+  "board-populated-3d.png": "cb4c4f426e1d82b075ef94db05464c3f6c4dbf2b658192e214eaaff4da759a78",
   "bom.csv": "999ff68defad3ae19bc0013ed069af81672c08e22a9cfbe10554a235cf9f6c0c",
   "copper-bottom.svg": "4749b7693b8daa983e676118487e7f5aead48eecd9b638dc97b15c8049d83b87",
-  "drc.json": "a78f6f3bec7bad3e2dd3f5a7a48c76f8d2f93a1b0e9b6d2efd8c12638de6674e",
+  "drc.json": "3f527cb2864fd2a5fb93e2047de5293a1e941d059c302253175f6fb69cbcb747",
   "erc.json": "e2f1203f1c66dc6435a9492986394a9a48576425e8b16ceb1fd383ab6c4ecfa8",
   "fabrication\\FABRICATION.md": "2c932d51c11e9a023a02ed5ecb48f084c18df0c904d0d6060dbb6812d6192234",
   "fabrication\\mouse-B_Cu.gbl": "6baf1b6c76d8bfc6bc683ddc61529840bbaaa668a420e5272e1583c21b2bdcba",
@@ -23,5 +24,6 @@
   "fabrication\\mouse-NPTH.drl": "7acf7655c530eb9b35a8174c4497e1bc9a9722c3a75d09cb88566dd670e6928b",
   "fabrication\\mouse-PTH-drl_map.svg": "f582405973f85444d9fbb2b2dfc8979c54fbce9b2843984350254b768473a038",
   "fabrication\\mouse-PTH.drl": "6d1799cea88054c2bce17d21ffee8285a8fffb715650385aa355cba6d4f109d1",
-  "placement.csv": "81679e667ef9460874c3394995daf4451636c9ef271a7bcf69ecac797fb58ff8"
+  "placement.csv": "81679e667ef9460874c3394995daf4451636c9ef271a7bcf69ecac797fb58ff8",
+  "render-models.json": "6e892c40bed6619996db2615ab8041a69cb194eed7ceff23d494b69ab40a8fd9"
 }

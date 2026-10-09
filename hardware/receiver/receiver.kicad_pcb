@@ -264,7 +264,7 @@
 			(uuid "87bdeece-193a-4de8-a9c0-e06764baf353")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -455,7 +455,7 @@
 			(uuid "964e10c0-7e9a-4090-9d84-d8fa64d39418")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Crystal.3dshapes/Crystal_SMD_3215-2Pin_3.2x1.5mm.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/OpenMice/Crystal-3215-visual-proxy.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -648,7 +648,7 @@
 			(uuid "31695fcf-9a33-4d72-add4-eb732f0dac6c")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -841,7 +841,7 @@
 			(uuid "d7a81e07-30b3-46bd-ae32-d21ebd660406")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1096,7 +1096,7 @@
 			(uuid "0b11396c-1fcb-475d-af6e-96fdac293b2e")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Package_TO_SOT_SMD.3dshapes/SOT-23-6.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Package_TO_SOT_SMD.3dshapes/SOT-23-6.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1289,7 +1289,7 @@
 			(uuid "8befe32a-ec41-4c68-806f-98c44b37c380")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1845,7 +1845,7 @@
 			(uuid "a6163b6c-c985-4bc2-a071-f65e252f6808")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2038,7 +2038,7 @@
 			(uuid "eab9cf43-a342-4143-b52e-c24f549eaf5d")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2231,7 +2231,7 @@
 			(uuid "9a3e0a0b-0bf5-458c-92fa-dac79bf2afcc")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2600,7 +2600,7 @@
 			(uuid "18a0769c-1050-4401-81a9-d213c9c0b1a5")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Connector_USB.3dshapes/USB_C_Receptacle_HRO_TYPE-C-31-M-12.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/OpenMice/USB-C-visual-proxy.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2872,7 +2872,7 @@
 			(uuid "f0728494-23ae-4181-9ba0-9bb9afcb946a")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3065,7 +3065,7 @@
 			(uuid "aad3aa1e-8b0d-49f1-b694-44698d493e6f")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3258,7 +3258,7 @@
 			(uuid "03909f6c-db0e-434a-a23d-caa244818008")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3505,7 +3505,7 @@
 			(uuid "1ef205db-bff6-4665-8855-4839c0f30948")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3698,7 +3698,7 @@
 			(uuid "b0b8a898-3ce7-4933-910a-f9c8cf4183f8")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3891,7 +3891,7 @@
 			(uuid "42f881b1-21ce-4206-8499-68a32f5d19f3")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4447,7 +4447,7 @@
 			(uuid "51df4240-4867-434d-ba87-40ecd9eaa24a")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -5484,7 +5484,7 @@
 			(uuid "281ca6e8-5167-4a17-8839-12234ef1c031")
 		)
 		(embedded_fonts no)
-		(model "${KISYS3DMOD}/RF_Module.3dshapes/Raytac_MDBT50Q.wrl"
+		(model "${KIPRJMOD}/../libraries/3dmodels/OpenMice/MDBT50Q-visual-proxy.wrl"
 			(offset
 				(xyz 0 0 0)
 			)

@@ -31,11 +31,17 @@ used. BLE is the prototype radio; proprietary 1000 Hz wireless is not implemente
 
 ## Board renders
 
-KiCad renders of the bare A1 prototype boards, before component assembly.
+KiCad assembly renders with all 51 mouse and 18 receiver components fitted.
+The sensor, radio module, USB-C, charger and crystal use simplified visual models;
+these images do not validate mechanical fit. The battery, main click switches
+and scroll encoder connect externally. See [model details](hardware/libraries/3dmodels/README.md).
 
 | Mouse PCB · 64 × 94 mm | Wireless receiver PCB · 28 × 54 mm |
 |---|---|
-| <img src="output/hardware/mouse/board-3d.png" alt="3D render of the bare OpenMice mouse PCB" width="480"> | <img src="output/hardware/receiver/board-3d.png" alt="3D render of the bare OpenMice wireless receiver PCB" width="360"> |
+| <img src="output/hardware/mouse/board-populated-3d.png" alt="Populated OpenMice mouse PCB with sensor, radio module and connectors" width="480"> | <img src="output/hardware/receiver/board-populated-3d.png" alt="Populated OpenMice wireless receiver PCB with radio module and USB-C" width="360"> |
+
+Bare PCB views: [mouse](output/hardware/mouse/board-3d.png) ·
+[receiver](output/hardware/receiver/board-3d.png).
 
 ## Preview
 

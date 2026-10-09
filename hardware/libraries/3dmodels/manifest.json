@@ -1,0 +1,21 @@
+{
+  "upstream_revision": "b8b3cfdfad88ba66f21002b3de51dc6f7d55ba5a",
+  "sha256": {
+    "Button_Switch_SMD.3dshapes/SW_SPDT_PCM12.wrl": "98e0bc62e70a078418e7c277d521a9342249800cf0271dfb396f494a39138035",
+    "Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl": "685ebb59226bc1d6c8c6b99774f69b8aa87cbf8d9ca15d8fadeadf7a1cb3cc67",
+    "Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl": "d8b095ab562bf44b3a6bcb4059c87775c51b7c5672480f3b2fdc796f165c8505",
+    "Capacitor_SMD.3dshapes/C_0805_2012Metric.wrl": "840481a5fd6d54a48d7a634404a9848de662816075c4569d2484b192c3fb2801",
+    "Connector_JST.3dshapes/JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical.wrl": "3c4018d0b92cbdff1d07e759ec366cec6fafcd01673a8350ae10626eccc6fe89",
+    "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl": "68eadd056ad8e757ea548dec4cd1c4077d97ba964a22b3ffb4005f859e4ae988",
+    "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl": "977905893df24d3b78b6df51920b8336ea447e26281c3eb48e068c636685cc1f",
+    "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl": "f99ddc405bd6fafac3897483beb766c7f9ff9a4bf72ac1530dbb7026191ab5af",
+    "OpenMice/BQ24072-visual-proxy.wrl": "3191ce0910894d527ce6b157a3ccba3502ee174db59605089fd5b5e7dab80a55",
+    "OpenMice/Crystal-3215-visual-proxy.wrl": "ad4512d6ee31d71742bdbe046ba4feb618269104f2d87bbcae9364e1492bb0f8",
+    "OpenMice/MDBT50Q-visual-proxy.wrl": "35602f129eb99256a411b872b346cdd3c9449c1dfc1f177113351853139cee08",
+    "OpenMice/PAW3395-visual-proxy.wrl": "be987a90248518c705b0623c4cad0cc173e38b2e5203e51d3d44d58449a7d2d1",
+    "OpenMice/USB-C-visual-proxy.wrl": "a558fd2f06cbd0be012df6a57da290a88055e42510417a319bead6692e279c22",
+    "Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl": "948f0fac31be6678900268969b124c7b1083633da2cd0068604780e562484a86",
+    "Package_TO_SOT_SMD.3dshapes/SOT-23-6.wrl": "01fe842f8ca8534456b365e2a38b77b8c61a07e4133d79187d0df9d46037051b",
+    "Resistor_SMD.3dshapes/R_0603_1608Metric.wrl": "eadfec9e71c67b1dd3910c72b45d811a06f0ab5397d0609354b10e9a3a4c1fdd"
+  }
+}

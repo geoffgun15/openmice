@@ -1,0 +1,146 @@
+[
+  {
+    "reference": "C1",
+    "value": "1uF 10V X7R",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C2",
+    "value": "4.7uF 6.3V X5R",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C3",
+    "value": "100nF 10V X7R",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C4",
+    "value": "100nF 10V X7R",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C5",
+    "value": "1uF 10V X7R",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C6",
+    "value": "18pF C0G (tune)",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "C7",
+    "value": "18pF C0G (tune)",
+    "models": [
+      "hardware/libraries/3dmodels/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "J1",
+    "value": "USB-C HRO TYPE-C-31-M-12",
+    "models": [
+      "hardware/libraries/3dmodels/OpenMice/USB-C-visual-proxy.wrl"
+    ],
+    "simplified": true
+  },
+  {
+    "reference": "J2",
+    "value": "SWD: VDD / SWDIO / SWDCLK / GND / RESET",
+    "models": [
+      "hardware/libraries/3dmodels/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "R1",
+    "value": "5.1k 1%",
+    "models": [
+      "hardware/libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "R2",
+    "value": "5.1k 1%",
+    "models": [
+      "hardware/libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "R3",
+    "value": "10k",
+    "models": [
+      "hardware/libraries/3dmodels/Resistor_SMD.3dshapes/R_0603_1608Metric.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "SW1",
+    "value": "PAIR TL3342",
+    "models": [
+      "hardware/libraries/3dmodels/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "SW2",
+    "value": "RESET TL3342",
+    "models": [
+      "hardware/libraries/3dmodels/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "U1",
+    "value": "MDBT50Q-1MV2",
+    "models": [
+      "hardware/libraries/3dmodels/OpenMice/MDBT50Q-visual-proxy.wrl"
+    ],
+    "simplified": true
+  },
+  {
+    "reference": "U2",
+    "value": "USBLC6-2SC6",
+    "models": [
+      "hardware/libraries/3dmodels/Package_TO_SOT_SMD.3dshapes/SOT-23-6.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "U3",
+    "value": "TLV70030DDCR",
+    "models": [
+      "hardware/libraries/3dmodels/Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl"
+    ],
+    "simplified": false
+  },
+  {
+    "reference": "Y1",
+    "value": "32.768kHz 12.5pF ABS07",
+    "models": [
+      "hardware/libraries/3dmodels/OpenMice/Crystal-3215-visual-proxy.wrl"
+    ],
+    "simplified": true
+  }
+]
