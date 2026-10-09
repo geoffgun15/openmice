@@ -62,5 +62,5 @@ proved by these reports. Check manufacturing assumptions in FABRICATION.md.
 
 Project code is MIT. Native bundles include CircuitPython, Adafruit bootloader,
 Nordic SoftDevice and frozen-library license files. Vendored KiCad footprints
-retain their upstream licensing. The supplied PixArt PDF is unchanged and keeps
-its original confidentiality/reuse restrictions.
+retain their upstream licensing. The confidential PixArt PDF is excluded
+from this public repository and its complete Git history.

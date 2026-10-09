@@ -41,7 +41,8 @@ not in either BOM and is not validated. Bench bring-up is in
 
 ## References and licenses
 
-- Supplied PAW3395DM-T6QU datasheet v1.3 (8 Apr 2024), unchanged in `docs/`.
+- PAW3395DM-T6QU datasheet v1.3 (8 Apr 2024): confidential reference, excluded
+  from this public repository; obtain through an authorized source.
 - [Raytac module datasheet](https://www.raytac.com/tw/download/index.php?index_id=24).
 - [BQ2407x datasheet, including BQ24072](https://www.ti.com/lit/ds/symlink/bq24074.pdf).
 - [TLV700 regulators](https://www.ti.com/product/TLV700).
@@ -50,4 +51,4 @@ not in either BOM and is not validated. Bench bring-up is in
 
 Vendored KiCad data retains upstream CC-BY-SA 4.0 licensing with the KiCad library
 exception; see the [library license](https://www.kicad.org/libraries/license/).
-Project code uses MIT. The PixArt reference retains its original restrictions.
+Project code uses MIT. The confidential PixArt reference is not distributed.

@@ -17,5 +17,5 @@
 #define UF2_PRODUCT_NAME "OpenMice Bootloader"
 #define UF2_VOLUME_LABEL "OPENMICE"
 #define UF2_BOARD_ID "nRF52840-openmice"
-#define UF2_INDEX_URL "https://github.com/geoffgun15/OpenMice-Proto"
+#define UF2_INDEX_URL "https://github.com/geoffgun15/openmice"
 #endif

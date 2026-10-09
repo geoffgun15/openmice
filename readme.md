@@ -1,6 +1,10 @@
-# OpenMice Proto
+# OpenMice
 
 Custom PAW3395 rechargeable mouse, USB wireless receiver, and browser configurator.
+
+Standalone repository: https://github.com/geoffgun15/openmice.
+Migrated from the original fork with all eight commits retained and the
+confidential PixArt PDF removed from every commit. Historical commit IDs changed.
 
 **A1 is a routed prototype package.** Both boards pass KiCad electrical,
 clearance, connectivity and schematic parity checks. Custom runtime and
@@ -45,9 +49,10 @@ python tools/package_firmware.py
 ```
 
 `tools/build_hardware.py` regenerates starting placements and overwrites manual edits.
-The original sensor PDF is unchanged. Prototype assumptions: LM19-LSI optics,
+The confidential sensor PDF is excluded from this public repository and its Git history.
+Prototype assumptions: LM19-LSI optics,
 64 x 94 mm mouse outline, external switch/encoder contacts, and a protected
 300 mAh cell with compatible NTC temperature sensing.
 
 Project code: MIT. Vendored KiCad libraries retain their upstream licenses;
-see hardware/README.md. The PixArt PDF retains its original restrictions.
+see hardware/README.md. Obtain sensor documentation through an authorized source.

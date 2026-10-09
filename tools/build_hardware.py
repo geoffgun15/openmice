@@ -16,6 +16,7 @@ HW = ROOT/'hardware'
 LIB = HW/'libraries/OpenMice.pretty'
 
 def uid(name):
+    # Retain the original identity seed so migration preserves KiCad UUIDs.
     return str(uuid.uuid5(uuid.NAMESPACE_URL,'https://github.com/geoffgun15/OpenMice-Proto/'+name))
 
 def quote(value):

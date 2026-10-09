@@ -23,15 +23,15 @@
     "licenses/Adafruit_CircuitPython_Register-LICENSES/Unlicense.txt": "400f5d8e311922cb34395c4c6f36b2a520f14fbab64393beac27cd9c1938f0a8",
     "licenses/CircuitPython-LICENSE": "11308814161facfe4c54a293914cc2a5b22b75c3890241bc58f1a885e35337b2",
     "licenses/s140_nrf52_6.1.1_license-agreement.txt": "3b2f36666f0bb5be433047e3e58ff3cff10c3c1ececdbfad592361fd9a3cdcfd",
-    "openmice-factory.hex": "e0a75612f637935f238886d030437617fae58e318d8de4efa66cc7f7ce61d1ba",
+    "openmice-factory.hex": "a62e7c5ba439173f243c6abadd1bcb5bdf281937123ff3a254296294086c2517",
     "openmice-runtime.elf": "ad902ea4174da9244e9680278f4d9d691142bcea2bb39f3f6bc7ef5cf8fb7ffb",
     "openmice-runtime.hex": "cb7f06258996bdb4453fbc9820fa3900a6442e618f7960ea45219b9beddbc910",
     "openmice-runtime.uf2": "83a668dc00cf61a823e49dd1c136d68ee6aaf52d4445ca518809456992941fb0",
-    "openmice_nrf52840_bootloader-0.11.0.hex": "faf844035b81ca0c0789603c10967b02b540a9649b8a028bfb86c0fa55454835",
-    "openmice_nrf52840_bootloader-0.11.0_nosd.hex": "d8f2d713a515178b8609772c21bd9e2d490c55410b553c1ef3634df155f2241c",
-    "openmice_nrf52840_bootloader-0.11.0_s140_6.1.1.hex": "f4a87d238fe49c78aad63b57ff27c226469d73f28575c499daaa4cee0a8ee2dc",
-    "openmice_nrf52840_bootloader-0.11.0_s140_6.1.1.zip": "27f77a01665995bcc2482a190c5c88d6668fc8a10535b43bb7784590e8f33693",
+    "openmice_nrf52840_bootloader-0.11.0.hex": "7c6f0997dc0d9f48bc289ebcc906ec1e1cb84aac030b78d583635f89a5759c86",
+    "openmice_nrf52840_bootloader-0.11.0_nosd.hex": "3e828d4b9ac97de950e1b3c3937884cb082b1178b74ae1b0a0b256aac91334b9",
+    "openmice_nrf52840_bootloader-0.11.0_s140_6.1.1.hex": "7bcd0396ace862cedc37c3795e5637ae853abe8bcae37638166bb0266e00163f",
+    "openmice_nrf52840_bootloader-0.11.0_s140_6.1.1.zip": "649cc4f990eeb29c3b9758991b1626b3cd53c04b01dc6fddd5fd7527954fd3e9",
     "runtime-size.json": "c2c8c905f619f842e99e6fe8d22ed7ec1fa663cb6aa4851d5f72646d7b7e0f79",
-    "update-openmice_nrf52840_bootloader-0.11.0_nosd.uf2": "c75d38e2e6153715105427650eb0f70584834c1523703b86079a240b2c680f97"
+    "update-openmice_nrf52840_bootloader-0.11.0_nosd.uf2": "3af10389cb7578aa298abb07a95d13110387d072cee5658eb82272e9485c6b5e"
   }
 }
