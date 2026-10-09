@@ -29,6 +29,14 @@ used. BLE is the prototype radio; proprietary 1000 Hz wireless is not implemente
 - [Receiver schematic](hardware/receiver/receiver.kicad_sch) / [PCB](hardware/receiver/receiver.kicad_pcb)
 - [Browser editor](web/index.html)
 
+## Board renders
+
+KiCad renders of the bare A1 prototype boards, before component assembly.
+
+| Mouse PCB · 64 × 94 mm | Wireless receiver PCB · 28 × 54 mm |
+|---|---|
+| <img src="output/hardware/mouse/board-3d.png" alt="3D render of the bare OpenMice mouse PCB" width="480"> | <img src="output/hardware/receiver/board-3d.png" alt="3D render of the bare OpenMice wireless receiver PCB" width="360"> |
+
 ## Preview
 
 ```sh
