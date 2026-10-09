@@ -1,3 +1,4 @@
 * text=auto eol=lf
 # Release checksums and programming/manufacturing bytes must survive checkout.
 output/** -text
+hardware/libraries/3dmodels/**/*.wrl -text

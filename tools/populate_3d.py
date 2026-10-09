@@ -38,7 +38,7 @@ def proxy(path, shapes):
     path.parent.mkdir(parents=True, exist_ok=True)
     # Legacy KiCad VRML coordinates are inches / 0.1 (2.54 mm per unit).
     path.write_text('#VRML V2.0 utf8\n# OpenMice visual proxy; MIT license.\n'
-                    + ''.join(shapes), encoding='utf-8')
+                    + ''.join(shapes), encoding='utf-8', newline='\n')
 
 
 def main():
@@ -138,7 +138,7 @@ def main():
         path.write_text(content, encoding='utf-8', newline='\n')
     manifest = {str(p.relative_to(MODELS)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in sorted(MODELS.rglob('*.wrl'))}
-    (MODELS / 'manifest.json').write_text(json.dumps({'upstream_revision': REVISION, 'sha256': manifest}, indent=2) + '\n')
+    (MODELS / 'manifest.json').write_text(json.dumps({'upstream_revision': REVISION, 'sha256': manifest}, indent=2) + '\n', newline='\n')
 
 
 if __name__ == '__main__':
